@@ -29,7 +29,7 @@ function guessStep(renderer) {
 }
 
 export function createQuality(renderer, {onChange = () => {}} = {}) {
-  let mode = localStorage.getItem('pumpkin3d-gfx') || 'auto';
+  let mode = localStorage.getItem('pumpkin3d-gfx2') || 'low'; // Low by default; Auto and higher are in the menu
   if (!MODES[mode]) mode = 'auto';
   let step = mode === 'auto' ? guessStep(renderer) : STEP_OF[mode];
   let frameNo = 0, times = [], elapsed = 0, fps = 0, good = 0, slow = 0, sinceDown = Infinity, warmup = 3;
@@ -47,7 +47,7 @@ export function createQuality(renderer, {onChange = () => {}} = {}) {
     get label() { return mode === 'auto' ? `Auto · ${STEPS[step].name}` : STEPS[step].name; },
     setMode(m) {
       mode = MODES[m] ? m : 'auto';
-      localStorage.setItem('pumpkin3d-gfx', mode);
+      localStorage.setItem('pumpkin3d-gfx2', mode);
       step = mode === 'auto' ? Math.min(step, 3) : STEP_OF[mode];
       good = slow = 0; restartWindow(); warmup = 1;
       apply();

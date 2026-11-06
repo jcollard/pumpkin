@@ -14,15 +14,20 @@ import {openGarage} from './garage.js';
 import {createQuality, MODES} from './quality.js';
 import {showChampion} from './finale.js';
 
+// Four varied, deliberately non-optimal pumpkins: Rodeo Red (orange Howden, glossy), Bluebell (blue-grey
+// Jarrahdale, lacquered; disqualified at Carmel), Crackerjack (lumpy, thin-skinned tan Provence that leads into
+// the Big Sur jump and shatters on landing, and explodes on Monterey's first net) and Old Faithful (big natural Howden).
 const DEFAULT_CODES = [
-  'PL6.WyJab29tZXIgTWFyayBWSSIsMCwyLDU0LDUsMTAwLDAsOSwwLDYsMCwxMSwxNCwwLDYwLDAsOSwwLDYsMCwxMV0.1xhe67b',
-  'PL6.WyJMb3cgQXJ0aWZpY2lhbCIsMCwyLDU4LDYsMTAwLDE2LDAsMCwzLDAsMSwxOCwyLDYwLDE2LDAsMCwzLDAsMV0.758tom',
-  'PL6.WyJEcmFmdGVyIiwwLDIsMzQsNywxMDAsMTQsMCwwLDYsMiwwLDYsNCw2MCwxNCwwLDAsNiwyLDBd.13a13eh',
-  'PL6.WyJDYXJtZWwgU3BlY2lhbGlzdCIsMCwyLDU5LDEsMTAwLDAsMiwwLDIsMCw5LDE5LDgsNjAsMCwyLDAsMiwwLDld.a5beh3',
+  'PL6.WyJSb2RlbyBSZWQiLDE0NjAsMCw1Myw5LDk0LDAsNywwLDUsMCwyLDEzLDgsNTQsMCw3LDAsNSwwLDJd.1gfaqvq',
+  'PL6.WyJCbHVlYmVsbCIsNjExMzgsMSw0NSw3LDkyLDAsMTIsMCw0LDAsMCw1LDQsNTIsMCwxMiwwLDQsMCwwXQ.q0rd2s',
+  'PL6.WyJDcmFja2VyamFjayIsMzI4MjUsMiw1MCwzLDk0LDAsMCwwLDUsMCwwLDEwLDQsNTQsMCwwLDAsNSwwLDBd.dwyw2n',
+  'PL6.WyJPbGQgRmFpdGhmdWwiLDU1NDUwLDAsNTcsOSw5NCwzLDAsNCwwLDcsMCwxNyw4LDU0LDMsMCw0LDAsNywwXQ.1312ddw',
 ];
 const $ = s => document.querySelector(s);
 const params = new URLSearchParams(location.hash.slice(1));
-const LOW = localStorage.getItem('pumpkin3d-low') === '1' || params.get('quality') === 'low';
+// Lighter scenery is the default (fewer trees, coarser terrain); #quality=high or the setup checkbox turns it off.
+const lowPref = localStorage.getItem('pumpkin3d-low2');
+const LOW = params.get('quality') === 'high' ? false : params.get('quality') === 'low' || lowPref === null || lowPref === '1';
 
 // --- Renderer (kept for the whole session); one scene per track ---
 const renderer = new THREE.WebGLRenderer({canvas: $('#view'), antialias: true, logarithmicDepthBuffer: true, powerPreference: 'high-performance', preserveDrawingBuffer: params.has('capture')});
@@ -379,7 +384,7 @@ $('#setup-form').addEventListener('submit', e => {
   if (!codes.length) { e.preventDefault(); $('#setup-error').textContent = 'Add at least one pumpkin code.'; return; }
   try { codes.forEach(c => P.decode(c)); } catch (err) { e.preventDefault(); $('#setup-error').textContent = err.message; return; }
   if ($('#quality').checked !== LOW) {
-    localStorage.setItem('pumpkin3d-low', $('#quality').checked ? '1' : '0');
+    localStorage.setItem('pumpkin3d-low2', $('#quality').checked ? '1' : '0');
     location.hash = (selected === 'circuit' ? 'circuit=1' : 'track=' + selected) + '&codes=' + codes.map(encodeURIComponent).join(',');
     location.reload(); return;
   }
@@ -417,7 +422,7 @@ function refreshGfx() {
   // At the lowest automatic step and still struggling: offer the lighter scenery build.
   $('#lighter').hidden = LOW || !(quality.mode === 'auto' && quality.step.name === 'Minimum' && quality.fps > 0 && quality.fps < 20);
 }
-$('#lighter').onclick = () => { localStorage.setItem('pumpkin3d-low', '1'); location.reload(); };
+$('#lighter').onclick = () => { localStorage.setItem('pumpkin3d-low2', '1'); location.reload(); };
 quality.apply();
 setPip(S.pipOn);
 function showGarage(entries, withResults) {

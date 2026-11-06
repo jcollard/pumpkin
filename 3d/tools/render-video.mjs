@@ -25,7 +25,7 @@ const workers = +(args.workers || 4), tail = +(args.tail || 6), url = args.url |
 const out = resolve(args.out || `${track}.mp4`);
 const codes = args.codes ? JSON.parse(readFileSync(args.codes, 'utf8')) : null;
 const frameDir = resolve(args.frames || `${out}.frames`);
-const hash = `#capture=1&track=${track}${codes ? '&codes=' + codes.map(encodeURIComponent).join(',') : ''}${args.extra ? '&' + args.extra : ''}`;
+const hash = `#capture=1&quality=high&track=${track}${codes ? '&codes=' + codes.map(encodeURIComponent).join(',') : ''}${args.extra ? '&' + args.extra : ''}`;
 
 // GPU by default (on WSL this goes through D3D12 to the real graphics card); SOFTWARE=1 forces SwiftShader.
 const GPU = process.env.SOFTWARE !== '1';
