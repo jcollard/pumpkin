@@ -45,8 +45,9 @@ addEventListener('pointerdown', unlockAudio); addEventListener('keydown', unlock
 
 const pips = createPips($('#pips'));
 const inspPop = createInspectionPopup($('#hud'), {
-  // Like the game: the race waits after the inspection until START RACE.
-  onReveal: () => { if (S.inspection && S.simT < S.inspection.verdict) { S.simT = S.prevT = S.inspection.verdict; S.playing = true; if (S.director) S.director.cutPending = true; } },
+  // Like the game: nothing happens until Start Inspection, and the race waits after it until START RACE.
+  onBegin: () => { S.inspectionStarted = true; S.playing = true; },
+  onReveal: () => { S.inspectionStarted = true; if (S.inspection && S.simT < S.inspection.verdict) { S.simT = S.prevT = S.inspection.verdict; S.playing = true; if (S.director) S.director.cutPending = true; } },
   onStart: () => startAfterInspection(),
   onBack: () => { S.playing = false; openSetup(S.codes); },
 });
@@ -152,7 +153,7 @@ function runRace(codes) {
   const plan = planShots(views, course.preroll, track);
   director.setPlan(plan);
   Object.assign(S, {views, director, plan, codes, results, rows, dq, netEvents, inspection, entries,
-    inspectionHold: inspection ? inspection.start + inspection.duration : null, inspectionConfirmed: false, endT: plan.allDone + 9, shownResults: false,
+    inspectionHold: inspection ? inspection.start + inspection.duration : null, inspectionConfirmed: false, inspectionStarted: false, endT: plan.allDone + 9, shownResults: false,
     simT: -course.preroll, prevT: -course.preroll, playing: true});
   S.events = buildEvents();
   $('#scrub').min = -course.preroll; $('#scrub').max = S.endT; $('#scrub').step = 0.01;
@@ -387,7 +388,7 @@ $('#setup-form').addEventListener('submit', e => {
 $('#setup-open').onclick = () => openSetup(S.views.map(v => P.encode(v.p)));
 
 // --- Transport ---
-function restart() { S.simT = S.prevT = -S.course.preroll; S.playing = true; S.inspectionConfirmed = false; if (S.director) S.director.cutPending = true; S.shownResults = false; $('#results').hidden = true; }
+function restart() { S.simT = S.prevT = -S.course.preroll; S.playing = true; S.inspectionConfirmed = false; S.inspectionStarted = false; if (S.director) S.director.cutPending = true; S.shownResults = false; $('#results').hidden = true; }
 $('#play').onclick = () => { S.playing = !S.playing; };
 $('#restart').onclick = restart;
 $('#rate').onchange = e => { S.userRate = +e.target.value; };
@@ -442,7 +443,8 @@ audioReady.then(() => {
 
 addEventListener('keydown', e => {
   if ($('#setup').open || document.querySelector('#garage')?.open || e.target.tagName === 'INPUT' || !S.director) return;
-  if (e.key === 'Enter' && S.inspectionHold != null && !S.inspectionConfirmed && S.simT >= S.inspectionHold - 0.01) { startAfterInspection(); e.preventDefault(); }
+  if (e.key === 'Enter' && S.inspection && !S.inspectionStarted && S.simT >= S.inspection.start - 0.01) { S.inspectionStarted = true; S.playing = true; e.preventDefault(); }
+  else if (e.key === 'Enter' && S.inspectionHold != null && !S.inspectionConfirmed && S.simT >= S.inspectionHold - 0.01) { startAfterInspection(); e.preventDefault(); }
   else if (e.code === 'Space') { S.playing = !S.playing; e.preventDefault(); }
   else if (e.key === 'r' || e.key === 'R') restart();
   else if (e.key === 'm' || e.key === 'M') setMute(!audio.muted);
@@ -482,6 +484,11 @@ function step(dt, advance) {
       S.prevT = S.simT;
       if (S.playing && !S.scrubbing) S.simT = Math.min(S.endT, S.simT + dt * rate);
     }
+    // Hold at the start of the inspection until Start Inspection (never while capturing videos).
+    if (S.inspection && !S.inspectionStarted && !S.capturing) {
+      if (S.prevT <= S.inspection.start + 1e-6 && S.simT > S.inspection.start) S.simT = S.inspection.start;
+      if (S.simT > S.inspection.start + 0.5) S.inspectionStarted = true; // scrubbed past it
+    }
     // Hold at the end of the inspection until START RACE (never while capturing videos).
     const holding = S.inspectionHold != null && !S.inspectionConfirmed && !S.capturing;
     if (holding && S.prevT <= S.inspectionHold + 1e-6 && S.simT > S.inspectionHold) S.simT = S.inspectionHold;
@@ -512,13 +519,14 @@ function step(dt, advance) {
       crowdExcitement: Math.max(0, ...(env.crowdZones || []).map((_, i) => excitementOf(i)))});
 
     $('#cam-label').innerHTML = `CAM · ${info.label}${(shot.rate ?? 1) < 1 && S.playing ? '<span class="slow">SLOW MOTION</span>' : ''}`;
-    $('#clock').textContent = S.inspectionHold != null && !S.inspectionConfirmed && S.simT >= S.inspectionHold - 1e-6 ? 'READY' : S.simT < 0 ? `−${Math.ceil(-S.simT)}` : Math.min(S.simT, S.plan.allDone).toFixed(2);
+    $('#clock').textContent = S.inspection && !S.inspectionStarted && S.simT >= S.inspection.start - 1e-6 ? 'INSPECT' : S.inspectionHold != null && !S.inspectionConfirmed && S.simT >= S.inspectionHold - 1e-6 ? 'READY' : S.simT < 0 ? `−${Math.ceil(-S.simT)}` : Math.min(S.simT, S.plan.allDone).toFixed(2);
     $('#play').textContent = S.playing ? '❚❚' : '▶';
     if (!S.scrubbing) $('#scrub').value = S.simT;
     $('#speedo-name').textContent = info.focus.name;
     $('#speedo-value').textContent = Math.round((info.focus.state?.v ?? 0) * 3.6);
     if (!S.shownResults && S.simT >= S.plan.allDone + 3) { S.shownResults = true; showResults(); }
-    inspPop.update(S.simT, {waiting: S.inspectionHold != null && !S.inspectionConfirmed && !S.capturing && S.simT >= S.inspectionHold - 1e-6, capturing: S.capturing});
+    inspPop.update(S.simT, {waiting: S.inspectionHold != null && !S.inspectionConfirmed && !S.capturing && S.simT >= S.inspectionHold - 1e-6,
+      waitingToBegin: !!S.inspection && !S.inspectionStarted && !S.capturing && S.simT >= S.inspection.start - 1e-6, capturing: S.capturing});
     // Lineup caption: the pumpkin nearest the dollying camera.
     if (info.shot.cam === 'LINEUP') {
       const v = views.filter(x => x.result.status !== 'DQ').reduce((a, b) => (Math.abs(b.lane - camera.position.z) < Math.abs(a.lane - camera.position.z) ? b : a));

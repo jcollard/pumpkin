@@ -12,8 +12,9 @@ export function createInspectionPopup(container, handlers = {}) {
   const el = document.createElement('div');
   el.className = 'inspect-pop'; el.hidden = true;
   el.innerHTML = `<div class="eyebrow"></div><h2>Under the magnifying glass.</h2><canvas aria-label="Inspector checking pumpkins"></canvas><p class="verdict" role="status"></p>
-    <div class="actions"><button class="reveal">Show verdict</button><button class="start primary" disabled>START RACE</button><button class="back">Back</button></div>`;
+    <div class="actions"><button class="begin primary">Start Inspection</button><button class="reveal">Show verdict</button><button class="start primary" disabled>START RACE</button><button class="back">Back</button></div>`;
   container.append(el);
+  el.querySelector('.begin').onclick = () => handlers.onBegin?.();
   el.querySelector('.reveal').onclick = () => handlers.onReveal?.();
   el.querySelector('.start').onclick = () => handlers.onStart?.();
   el.querySelector('.back').onclick = () => handlers.onBack?.();
@@ -26,17 +27,21 @@ export function createInspectionPopup(container, handlers = {}) {
     clear() { race = null; el.hidden = true; },
     verdictTime() { return race ? race.start + race.duration * GAME_VERDICT / GAME_ANIMATION : null; },
     // waiting: the race is held at the end of the animation until START RACE is pressed.
-    update(simT, {waiting = false, capturing = false} = {}) {
+    // waitingToBegin: held at the start until Start Inspection is pressed.
+    update(simT, {waiting = false, waitingToBegin = false, capturing = false} = {}) {
       if (!race) return;
       const local = (simT - race.start) / race.duration * GAME_ANIMATION; // the game's 0..7 s timeline
       const show = local >= 0 && local <= GAME_ANIMATION + 1.2;
       el.hidden = !show;
       el.classList.toggle('leaving', !waiting && local > GAME_ANIMATION + 0.6);
-      el.classList.toggle('waiting', waiting);
       el.querySelector('.actions').hidden = capturing;
-      el.querySelector('.reveal').hidden = local >= GAME_VERDICT;
+      el.classList.toggle('waiting', waiting || waitingToBegin);
+      el.querySelector('.begin').hidden = !waitingToBegin;
+      el.querySelector('.reveal').hidden = waitingToBegin || local >= GAME_VERDICT;
+      el.querySelector('.start').hidden = waitingToBegin;
       el.querySelector('.start').disabled = local < GAME_VERDICT;
       if (!show) return;
+      race.waitingToBegin = waitingToBegin;
       paint(Math.min(GAME_ANIMATION, Math.max(0, local)));
     },
   };
@@ -63,7 +68,7 @@ export function createInspectionPopup(container, handlers = {}) {
     if (pose.left) { c.translate(pose.x * 2 + 40, 0); c.scale(-1, 1); } // face the way he walks
     inspectorFigure(c, pose.x, py + 35, .78, pose.walking, pose.examine, t);
     c.restore();
-    el.querySelector('.verdict').textContent = t < GAME_VERDICT ? pose.say
+    el.querySelector('.verdict').textContent = race.waitingToBegin ? 'The pumpkins are lined up. Ready when you are.' : t < GAME_VERDICT ? pose.say
       : dq < 0 ? 'Everyone is cleared. Tied highest scores are allowed.'
       : `${nameOf(entries[dq], dq)} has the unique highest artificiality. Disqualified from ${tracks[trackIndex].name}.`;
   }

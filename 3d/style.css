@@ -123,14 +123,14 @@ dialog.credits button{color:var(--ink);background:#fff;border-color:var(--line);
 @media (max-width:760px){.pips{top:56px}.pip{width:clamp(110px,26vw,160px)}}
 
 /* Inspection pop-up: the original game's inspector over the 3D view */
-.inspect-pop{position:absolute;right:14px;top:62px;width:min(470px,calc(100% - 40px));background:#f6f1e3;color:#1f2a24;border-radius:14px;padding:14px 18px 12px;box-shadow:0 24px 70px rgba(0,0,0,.45);animation:popin .45s cubic-bezier(.2,1.4,.4,1) both;z-index:4}
+.inspect-pop{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:min(560px,calc(100% - 40px));background:#f6f1e3;color:#1f2a24;border-radius:14px;padding:16px 20px 12px;box-shadow:0 24px 70px rgba(0,0,0,.45);animation:popin .45s cubic-bezier(.2,1.4,.4,1) both;z-index:4}
 .inspect-pop.leaving{animation:popout .5s ease-in forwards}
 .inspect-pop .eyebrow{font-size:11px;letter-spacing:2px;color:#6f7466}
 .inspect-pop h2{margin:2px 0 8px;font-size:20px}
-.inspect-pop canvas{width:100%;height:210px;display:block;border-radius:8px}
+.inspect-pop canvas{width:100%;height:236px;display:block;border-radius:8px}
 .inspect-pop .verdict{min-height:34px;margin:8px 0 0;font-size:13px;text-align:center}
-@keyframes popin{from{opacity:0;transform:translateX(30px) scale(.9)}to{opacity:1;transform:none}}
-@keyframes popout{to{opacity:0;transform:translateX(30px) scale(.94)}}
+@keyframes popin{from{opacity:0;transform:translate(-50%,-50%) scale(.85)}to{opacity:1;transform:translate(-50%,-50%) scale(1)}}
+@keyframes popout{to{opacity:0;transform:translate(-50%,-46%) scale(.92)}}
 
 /* Garage */
 dialog.garage{border:0;border-radius:14px;width:min(1180px,calc(100% - 24px));max-height:92vh;background:#f6f1e3;color:#1f2a24;padding:18px 22px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
@@ -166,7 +166,7 @@ body.capturing .lowerthird{bottom:92px}
 .inspect-pop .actions button{color:#1f2a24;background:#fff;border:1px solid #d5cfbd;border-radius:6px;padding:6px 14px}
 .inspect-pop .actions button.primary{background:#2f4a3c;color:#fff;border-color:#2f4a3c;letter-spacing:1px}
 .inspect-pop .actions button:disabled{opacity:.45;cursor:default}
-.inspect-pop.waiting .actions button.primary{animation:ready 1.2s ease-in-out infinite}
+.inspect-pop.waiting .actions button.primary:not(:disabled){animation:ready 1.2s ease-in-out infinite}
 @keyframes ready{50%{box-shadow:0 0 0 6px rgba(229,139,55,.45)}}
 
 /* Volume: click the speaker to mute; hover (or focus) shows the slider above it */

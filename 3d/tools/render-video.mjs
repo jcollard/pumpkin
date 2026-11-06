@@ -114,7 +114,7 @@ if (args.audio !== undefined && args.audio !== 'false') {
     await audio.start();
     const rec = new MediaRecorder(audio.captureStream(), {mimeType: 'audio/webm;codecs=opus', audioBitsPerSecond: 160000});
     const chunks = []; rec.ondataavailable = e => chunks.push(e.data);
-    p.pause(); p.simT = start; p.state.userRate = 1; p.state.inspectionConfirmed = true; // no waiting for START RACE
+    p.pause(); p.simT = start; p.state.userRate = 1; p.state.inspectionStarted = p.state.inspectionConfirmed = true; // no waiting for the inspection buttons
     await new Promise(r => setTimeout(r, 300));
     rec.start(250); p.play();
     await new Promise(r => { const tick = () => (p.simT >= end ? r() : setTimeout(tick, 20)); tick(); });

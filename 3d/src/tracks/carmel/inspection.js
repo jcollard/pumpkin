@@ -308,6 +308,7 @@ export function buildInspection(group, course, mats, {ground, lib = null}) {
   const keeper = official(lib?.woman, {coat: 0x2f4a6d, trousers: 0x2b2b2b, hat: 'boater', hatColor: 0xd9c690}, {left: [clipboard()]});
   keeper.root.position.set(T.x - 0.2, gy(T.x, T.z - 1.0), T.z - 1.0); keeper.root.rotation.y = -Math.PI / 2;
   g.add(insp.root, helper.root, keeper.root);
+  insp.root.visible = false; // the inspection is shown by the game's own 2D inspector (pop-up); no 3D inspector
 
   // Flags: one per entrant slot (green = cleared, red = disqualified). Created on race.
   const flagGroup = new THREE.Group(); g.add(flagGroup);
