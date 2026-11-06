@@ -124,7 +124,16 @@ export function planShots(views, preroll, track) {
   const pool = {...POOL, ...(track.cyclePool || {})};
   const recent = [];
   const shots = [];
-  const leader = t => { const i = P.leaderAt(results, Math.max(0, t)); return i < 0 ? winner : i; };
+  // Follow the front-runner among pumpkins still racing; once everyone is done, the winner.
+  const leader = t => {
+    let best = -1, bx = -Infinity;
+    views.forEach((v, i) => {
+      if (v.result.status === 'DQ' || t >= v.result.time) return;
+      const x = P.sampleSimulation(v.result, Math.max(0, t)).centerX;
+      if (x > bx) { bx = x; best = i; }
+    });
+    return best >= 0 ? best : winner;
+  };
 
   // Score each candidate camera for the moment; never the previous camera, rarely a recent one.
   function pickCam(t, prevCam, nextCam, room) {
@@ -164,8 +173,12 @@ export function planShots(views, preroll, track) {
       const cam = pickCam(t, prev?.cam, room < 7 ? nextCam : null, room);
       const spec = pool[cam] || {min: 3, max: 5};
       let len = spec.min + rand() * (spec.max - spec.min);
+      const focus = pickFocus(t);
+      // If this pumpkin finishes during the shot, stay on it ~2.5 s, then move on to those still racing.
+      const done = views[focus]?.result.time ?? Infinity, others = views.some((v, i) => i !== focus && v.result.status !== 'DQ' && v.result.time > done);
+      if (others && done > t && done + 2.5 < t + len) len = Math.max(1.6, done + 2.5 - t);
       if (room - len < 1.6) len = room;          // don't leave a sliver before the next highlight
-      shots.push({start: t, end: t + len, cam, focus: pickFocus(t), rate: 1});
+      shots.push({start: t, end: t + len, cam, focus, rate: 1});
       recent.push(cam); if (recent.length > 3) recent.shift();
       t += len;
     }
