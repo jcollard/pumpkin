@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pumpkin 3D asset preview</title>
+<link rel="icon" href="data:,">
+<!--
+  Contact sheet for every model in ../assets/catalog.json.
+  Serve the project root (e.g. `python3 -m http.server` in pumpkin3d/) and open /tools/asset-preview.html.
+  Each cell shows the model at scale 1 next to a 1 m grey reference cube, a 1 m axes marker at the model origin
+  (red = +X, green = +Y up, blue = +Z which is the model's front) and a 1 m ground grid.
+  Query options:
+    ?cat=trees,rocks     only these categories      ?track=salinas   only assets tagged for this track
+    ?cols=6              grid columns                ?list=<url>      another JSON list (same format as catalog.json)
+    ?size=260            cell height in px           ?q=barn          substring filter on id/name
+    ?anim=Wave|Clapping  pose rigged models with the first matching clip (0.6 s in)
+    ?textures=0|1        hide / force the PBR texture + HDRI section (shown by default when no filter is set; ?cat=none&textures=1 for textures only)
+-->
+<script type="importmap">
+{ "imports": {
+  "three": "../vendor/three/three.module.js",
+  "three/addons/": "../vendor/three/addons/"
+} }
+</script>
+<style>
+  html, body { margin: 0; background: #20242a; color: #e8e8e8; font: 12px/1.3 system-ui, sans-serif; }
+  #c { position: absolute; left: 0; top: 0; z-index: 0; pointer-events: none; }
+  header { position: relative; z-index: 1; padding: 8px 12px; background: #2c3139; }
+  header b { font-size: 14px; }
+  #grid { position: relative; z-index: 1; display: grid; gap: 4px; padding: 4px; }
+  .cell { position: relative; border: 1px solid #3a404a; background: transparent; }
+  .cell .lab { position: absolute; left: 0; right: 0; bottom: 0; padding: 2px 4px; background: rgba(20, 24, 30, .78); }
+  .cell .lab .n { font-weight: 600; color: #fff; }
+  .cell .lab .m { color: #aab; font-size: 11px; }
+  .cell .lab .t { color: #fc6; font-size: 10px; }
+  .cell.err { outline: 2px solid #e44; }
+  h2 { position: relative; z-index: 1; margin: 10px 8px 2px; font-size: 14px; color: #fc6; }
+  .hdri { position: relative; z-index: 1; display: grid; gap: 4px; padding: 4px; grid-template-columns: repeat(2, 1fr); }
+  .hdri figure { margin: 0; background: #2c3139; }
+  .hdri img { width: 100%; display: block; }
+  .hdri figcaption { padding: 2px 4px; }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<header><b>Pumpkin 3D asset preview</b> · <span id="info">loading…</span> · grey cube = 1 m · axes at origin: red +X, green +Y, blue +Z (front) · grid = 1 m</header>
+<div id="grid"></div>
+<script type="module">
+import * as THREE from 'three';
+import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+
+const qs = new URLSearchParams(location.search);
+const listUrl = qs.get('list') || '../assets/catalog.json';
+const cols = +(qs.get('cols') || 6);
+const cellH = +(qs.get('size') || 250);
+const cats = qs.get('cat')?.split(',');
+const track = qs.get('track');
+const q = qs.get('q');
+const animRe = qs.get('anim') ? new RegExp(qs.get('anim')) : null;
+const showTex = qs.get('textures') === '1' || (qs.get('textures') !== '0' && !cats && !track && !q);
+
+const list = await (await fetch(listUrl)).json();
+const baseUrl = new URL(list.base || '.', new URL(listUrl, location.href));
+let items = list.models || list;
+if (cats) items = items.filter(m => cats.includes(m.category));
+if (track) items = items.filter(m => (m.tracks || []).includes(track) || (m.tracks || []).includes('all'));
+if (q) items = items.filter(m => (m.id + ' ' + (m.name || '')).toLowerCase().includes(q.toLowerCase()));
+
+const grid = document.getElementById('grid');
+grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+const canvas = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
+renderer.setPixelRatio(1);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.0;
+renderer.setScissorTest(true);
+
+const loader = new GLTFLoader();
+const cubeGeo = new THREE.BoxGeometry(1, 1, 1);
+const cubeMat = new THREE.MeshStandardMaterial({color: 0x8a8f99, roughness: 0.8});
+const cells = [];
+
+for (const m of items) {
+  const div = document.createElement('div');
+  div.className = 'cell';
+  div.style.height = cellH + 'px';
+  const lab = document.createElement('div');
+  lab.className = 'lab';
+  const kb = m.kb != null ? `${m.kb} KB` : '';
+  const h = m.height_m != null ? `${m.height_m} m tall` : '';
+  const clips = m.animations?.length ? `${m.animations.length} clips` : '';
+  lab.innerHTML = `<div class="n"></div><div class="m">${[h, m.tris != null ? m.tris + ' tris' : '', kb, clips].filter(Boolean).join(' · ')}</div><div class="t"></div>`;
+  lab.querySelector('.n').textContent = m.id || m.path;
+  lab.querySelector('.t').textContent = [m.category, (m.tracks || []).join('/')].filter(Boolean).join(' · ');
+  div.appendChild(lab);
+  grid.appendChild(div);
+  cells.push({m, div});
+}
+
+function buildScene(obj) {
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(0x9fb4c8);
+  scene.add(new THREE.HemisphereLight(0xdfefff, 0x6b5a45, 1.6));
+  const sun = new THREE.DirectionalLight(0xfff1dd, 2.2);
+  sun.position.set(3, 6, 4);
+  scene.add(sun);
+  scene.add(obj);
+  const box = new THREE.Box3().setFromObject(obj);
+  if (box.isEmpty()) box.set(new THREE.Vector3(-0.5, 0, -0.5), new THREE.Vector3(0.5, 1, 0.5));
+  // 1 m reference cube to the right of the model, sitting on y = 0
+  const cube = new THREE.Mesh(cubeGeo, cubeMat);
+  cube.position.set(Math.max(box.max.x, 0) + 0.8, 0.5, 0);
+  scene.add(cube);
+  const edges = new THREE.LineSegments(new THREE.EdgesGeometry(cubeGeo), new THREE.LineBasicMaterial({color: 0x222222}));
+  edges.position.copy(cube.position);
+  scene.add(edges);
+  const axes = new THREE.AxesHelper(1);
+  axes.material.depthTest = false;
+  axes.renderOrder = 10;
+  scene.add(axes);
+  const full = box.clone().union(new THREE.Box3().setFromObject(cube));
+  const span = Math.ceil(Math.max(full.max.x - full.min.x, full.max.z - full.min.z) + 2);
+  const gridH = new THREE.GridHelper(Math.min(span, 60), Math.min(span, 60), 0x445566, 0x667788);
+  gridH.position.set((full.min.x + full.max.x) / 2, 0, (full.min.z + full.max.z) / 2);
+  scene.add(gridH);
+  const sphere = full.getBoundingSphere(new THREE.Sphere());
+  const cam = new THREE.PerspectiveCamera(30, 1, 0.01, 5000);
+  const dir = new THREE.Vector3(0.55, 0.38, 1).normalize();   // front-right, slightly above (model front = +Z)
+  const dist = sphere.radius / Math.sin(THREE.MathUtils.degToRad(15)) * 1.02;
+  cam.position.copy(sphere.center).addScaledVector(dir, dist);
+  cam.lookAt(sphere.center);
+  return {scene, cam};
+}
+
+let done = 0, failed = 0;
+const info = document.getElementById('info');
+await Promise.all(cells.map(async c => {
+  const url = new URL(c.m.path || c.m.url, baseUrl).href;
+  try {
+    const gltf = await loader.loadAsync(url);
+    const obj = gltf.scene;
+    obj.traverse(o => { if (o.isMesh) o.frustumCulled = false; });
+    if (animRe && gltf.animations.length) {
+      const clip = gltf.animations.find(a => animRe.test(a.name));
+      if (clip) { const mixer = new THREE.AnimationMixer(obj); mixer.clipAction(clip).play(); mixer.update(0.6); obj.updateMatrixWorld(true); }
+    }
+    Object.assign(c, buildScene(obj));
+  } catch (e) {
+    failed++;
+    c.div.classList.add('err');
+    c.div.querySelector('.t').textContent = 'LOAD ERROR: ' + e.message;
+    console.error('load failed', url, e);
+  }
+  info.textContent = `${++done}/${cells.length} loaded${failed ? `, ${failed} failed` : ''}`;
+}));
+
+// ---- PBR texture sets and HDRIs (catalog.json "textures" / "hdris") ----
+if (showTex && list.textures?.length) {
+  const h2 = document.createElement('h2'); h2.textContent = 'PBR textures (each plane is 4 × 4 m with the suggested tiling; grid = 1 m)';
+  document.body.appendChild(h2);
+  const tgrid = document.createElement('div'); tgrid.id = 'tgrid'; tgrid.style.cssText = `position:relative;z-index:1;display:grid;gap:4px;padding:4px;grid-template-columns:repeat(${Math.min(cols, 8)},1fr)`;
+  document.body.appendChild(tgrid);
+  const tl = new THREE.TextureLoader();
+  const load = (u, srgb, rep) => new Promise(res => tl.load(u, t => { t.wrapS = t.wrapT = THREE.RepeatWrapping; t.repeat.set(rep, rep); if (srgb) t.colorSpace = THREE.SRGBColorSpace; t.anisotropy = 4; res(t); }, undefined, () => res(null)));
+  await Promise.all(list.textures.map(async t => {
+    const div = document.createElement('div'); div.className = 'cell'; div.style.height = cellH + 'px';
+    div.innerHTML = `<div class="lab"><div class="n"></div><div class="m"></div></div>`;
+    div.querySelector('.n').textContent = t.id; div.querySelector('.m').textContent = `${t.kb} KB · tile ${t.tile_m} m`;
+    tgrid.appendChild(div);
+    const rep = 4 / t.tile_m, base = new URL(t.path, baseUrl).href;
+    const [map, normalMap, roughnessMap] = await Promise.all([load(base + 'color.jpg', true, rep), load(base + 'normal.jpg', false, rep), load(base + 'roughness.jpg', false, rep)]);
+    const mat = new THREE.MeshStandardMaterial({map, normalMap, roughnessMap, roughness: 1, color: t.tint ? new THREE.Color(t.tint) : 0xffffff});
+    const plane = new THREE.Mesh(new THREE.PlaneGeometry(4, 4), mat); plane.rotation.x = -Math.PI / 2;
+    const obj = new THREE.Group(); obj.add(plane);
+    const r = buildScene(obj);
+    r.cam.position.set(2.2, 2.6, 3.4); r.cam.lookAt(0, 0, 0);
+    cells.push({m: t, div, ...r});
+  }));
+}
+if (showTex && list.hdris?.length) {
+  const h2 = document.createElement('h2'); h2.textContent = 'HDRI skies (2K tonemapped JPG shown; the 1K .hdr is for lighting)';
+  document.body.appendChild(h2);
+  const hd = document.createElement('div'); hd.className = 'hdri'; document.body.appendChild(hd);
+  await Promise.all(list.hdris.map(hdri => new Promise(res => {
+    const f = document.createElement('figure');
+    const img = new Image(); img.onload = img.onerror = res; img.src = new URL(hdri.jpg, baseUrl).href;
+    const cap = document.createElement('figcaption'); cap.textContent = `${hdri.id} · ${hdri.name}`;
+    f.append(img, cap); hd.appendChild(f);
+  })));
+}
+
+function render() {
+  const w = document.documentElement.scrollWidth, h = document.documentElement.scrollHeight;
+  if (canvas.width !== w || canvas.height !== h) renderer.setSize(w, h, true);
+  renderer.setScissorTest(false);
+  renderer.setClearColor(0x20242a);
+  renderer.clear();
+  renderer.setScissorTest(true);
+  for (const c of cells) {
+    if (!c.scene) continue;
+    const r = c.div.getBoundingClientRect();
+    const x = r.left + scrollX, y = h - (r.bottom + scrollY);
+    const labH = Math.min(c.div.querySelector(".lab").offsetHeight, r.height - 40);
+    c.cam.aspect = r.width / (r.height - labH);
+    c.cam.updateProjectionMatrix();
+    renderer.setViewport(x, y + labH, r.width, r.height - labH);
+    renderer.setScissor(x, y + labH, r.width, r.height - labH);
+    renderer.render(c.scene, c.cam);
+  }
+}
+render();
+addEventListener('resize', render);
+info.textContent = `${done}/${done} models loaded${failed ? `, ${failed} failed` : ''}`;
+window.__previewReady = {count: cells.length, failed};
+</script>
+</body>
+</html>

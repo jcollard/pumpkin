@@ -1,0 +1,4727 @@
+{
+ "about": "Pumpkin 3D model catalogue. Paths are relative to this file (assets/). All models are scaled to real-world metres at scale 1, +Y up, origin as given.",
+ "base": ".",
+ "models": [
+  {
+   "id": "cypress_monterey_a",
+   "category": "trees",
+   "path": "models/trees/cypress_monterey_a.glb",
+   "name": "Monterey cypress, wind-sculpted (MegaKit \"Twisted Tree\", leaves recoloured from red to dark cypress green)",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 608,
+   "tris": 9564,
+   "height_m": 16.73,
+   "size_m": [
+    13.52,
+    16.73,
+    11.55
+   ],
+   "bbox_min": [
+    -2.17,
+    -0.2,
+    -6.73
+   ],
+   "bbox_max": [
+    11.34,
+    16.52,
+    4.82
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 16.725,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Crown leans to +X/-Z; rotate freely for variety. Scale 0.6–1.2.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Twisted Tree",
+   "source": "https://poly.pizza/m/9aWlx82xUf",
+   "attribution": null
+  },
+  {
+   "id": "cypress_monterey_b",
+   "category": "trees",
+   "path": "models/trees/cypress_monterey_b.glb",
+   "name": "Monterey cypress, wind-sculpted, variant b",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 648,
+   "tris": 10089,
+   "height_m": 16.07,
+   "size_m": [
+    11.36,
+    16.07,
+    11.51
+   ],
+   "bbox_min": [
+    -4.49,
+    -0.2,
+    -6.52
+   ],
+   "bbox_max": [
+    6.87,
+    15.87,
+    4.99
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 16.073,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.6–1.2.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Twisted Tree",
+   "source": "https://poly.pizza/m/8oraKn9m0x",
+   "attribution": null
+  },
+  {
+   "id": "cypress_monterey_c",
+   "category": "trees",
+   "path": "models/trees/cypress_monterey_c.glb",
+   "name": "Monterey cypress, wind-sculpted, variant c",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 677,
+   "tris": 10104,
+   "height_m": 15.66,
+   "size_m": [
+    9.49,
+    15.66,
+    9.39
+   ],
+   "bbox_min": [
+    -3.75,
+    -0.2,
+    -6.34
+   ],
+   "bbox_max": [
+    5.75,
+    15.46,
+    3.05
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 15.662,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.6–1.2.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Twisted Tree",
+   "source": "https://poly.pizza/m/edSPJNECM7",
+   "attribution": null
+  },
+  {
+   "id": "oak_round_a",
+   "category": "trees",
+   "path": "models/trees/oak_round_a.glb",
+   "name": "Round broadleaf tree (stands in for coast live oak), leaves darkened to oak green",
+   "tracks": [
+    "salinas",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 383,
+   "tris": 5648,
+   "height_m": 10.5,
+   "size_m": [
+    6.13,
+    10.5,
+    5.87
+   ],
+   "bbox_min": [
+    -3.05,
+    -0.33,
+    -2.54
+   ],
+   "bbox_max": [
+    3.08,
+    10.17,
+    3.33
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1.37,
+    1.37,
+    1.37
+   ],
+   "source_height_units": 7.643,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.7–1.3; squash Y to 0.8 for a broader oak silhouette.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Tree",
+   "source": "https://poly.pizza/m/aVOxaHRPWe",
+   "attribution": null
+  },
+  {
+   "id": "oak_round_b",
+   "category": "trees",
+   "path": "models/trees/oak_round_b.glb",
+   "name": "Round broadleaf tree / coast live oak, variant b",
+   "tracks": [
+    "salinas",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 442,
+   "tris": 6265,
+   "height_m": 10,
+   "size_m": [
+    5.93,
+    10,
+    6.3
+   ],
+   "bbox_min": [
+    -3.02,
+    -0.33,
+    -3.06
+   ],
+   "bbox_max": [
+    2.91,
+    9.67,
+    3.24
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1.38,
+    1.38,
+    1.38
+   ],
+   "source_height_units": 7.265,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.7–1.3.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Tree",
+   "source": "https://poly.pizza/m/qZtx0AHhcy",
+   "attribution": null
+  },
+  {
+   "id": "broadleaf_tall",
+   "category": "trees",
+   "path": "models/trees/broadleaf_tall.glb",
+   "name": "Tall slender broadleaf tree (eucalyptus / sycamore stand-in)",
+   "tracks": [
+    "salinas",
+    "carmel",
+    "monterey"
+   ],
+   "kb": 335,
+   "tris": 3505,
+   "height_m": 9.43,
+   "size_m": [
+    4.06,
+    9.43,
+    4.24
+   ],
+   "bbox_min": [
+    -1.99,
+    -0.24,
+    -2.06
+   ],
+   "bbox_max": [
+    2.08,
+    9.18,
+    2.18
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 9.425,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Windbreak rows along Salinas fields. Scale 0.8–1.6.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Tree",
+   "source": "https://poly.pizza/m/QVOop92WmG",
+   "attribution": null
+  },
+  {
+   "id": "pine_a",
+   "category": "trees",
+   "path": "models/trees/pine_a.glb",
+   "name": "Pine / Monterey pine",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 245,
+   "tris": 3947,
+   "height_m": 14.5,
+   "size_m": [
+    9.8,
+    14.5,
+    8.99
+   ],
+   "bbox_min": [
+    -4.85,
+    -0.47,
+    -4.91
+   ],
+   "bbox_max": [
+    4.95,
+    14.03,
+    4.09
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1.98,
+    1.98,
+    1.98
+   ],
+   "source_height_units": 7.317,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.6–1.4.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Pine",
+   "source": "https://poly.pizza/m/rfnxJv0Rqa",
+   "attribution": null
+  },
+  {
+   "id": "pine_b",
+   "category": "trees",
+   "path": "models/trees/pine_b.glb",
+   "name": "Pine, variant b (taller, sparse lower branches)",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 239,
+   "tris": 3370,
+   "height_m": 16,
+   "size_m": [
+    9.07,
+    16,
+    8.39
+   ],
+   "bbox_min": [
+    -4.49,
+    -0.37,
+    -4.6
+   ],
+   "bbox_max": [
+    4.58,
+    15.63,
+    3.79
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1.56,
+    1.56,
+    1.56
+   ],
+   "source_height_units": 10.236,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.6–1.4.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Pine",
+   "source": "https://poly.pizza/m/79gmlLnweB",
+   "attribution": null
+  },
+  {
+   "id": "pine_c",
+   "category": "trees",
+   "path": "models/trees/pine_c.glb",
+   "name": "Pine, variant c (dense conical)",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 237,
+   "tris": 3648,
+   "height_m": 14,
+   "size_m": [
+    10.87,
+    14,
+    9.91
+   ],
+   "bbox_min": [
+    -5.49,
+    -0.45,
+    -5.11
+   ],
+   "bbox_max": [
+    5.38,
+    13.55,
+    4.8
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    1.9,
+    1.9,
+    1.9
+   ],
+   "source_height_units": 7.376,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.6–1.4.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Pine",
+   "source": "https://poly.pizza/m/Zt62gceKXZ",
+   "attribution": null
+  },
+  {
+   "id": "redwood_a",
+   "category": "trees",
+   "path": "models/trees/redwood_a.glb",
+   "name": "Coast redwood (MegaKit pine scaled up, bark tinted red-brown, needles darkened)",
+   "tracks": [
+    "bigsur"
+   ],
+   "kb": 277,
+   "tris": 4964,
+   "height_m": 34,
+   "size_m": [
+    16.61,
+    34,
+    18.38
+   ],
+   "bbox_min": [
+    -9.72,
+    -1.08,
+    -10.54
+   ],
+   "bbox_max": [
+    6.89,
+    32.92,
+    7.83
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    4.6,
+    4.6,
+    4.6
+   ],
+   "source_height_units": 7.392,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Trunk about 1.6 m across near the ground; sparse low branches. Group in clusters (\"fairy rings\"). Scale 0.6–1.3.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Pine",
+   "source": "https://poly.pizza/m/699sFuLCN2",
+   "attribution": null
+  },
+  {
+   "id": "redwood_b",
+   "category": "trees",
+   "path": "models/trees/redwood_b.glb",
+   "name": "Coast redwood, variant b",
+   "tracks": [
+    "bigsur"
+   ],
+   "kb": 166,
+   "tris": 1646,
+   "height_m": 36,
+   "size_m": [
+    26.49,
+    36,
+    25.68
+   ],
+   "bbox_min": [
+    -12.33,
+    -0.97,
+    -15.59
+   ],
+   "bbox_max": [
+    14.16,
+    35.03,
+    10.08
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "trunk base (source origin); roots dip ~0.2 m below y=0",
+   "baked_scale": [
+    4.13,
+    4.13,
+    4.13
+   ],
+   "source_height_units": 8.724,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Trunk about 2.3 m across near the ground; dense crown. Scale 0.6–1.3.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Pine",
+   "source": "https://poly.pizza/m/igSu0cPoBz",
+   "attribution": null
+  },
+  {
+   "id": "bush_coastal_sage",
+   "category": "plants",
+   "path": "models/plants/bush_coastal_sage.glb",
+   "name": "Round shrub, recoloured grey-green (coastal sage scrub)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 105,
+   "tris": 900,
+   "height_m": 1.2,
+   "size_m": [
+    1.45,
+    1.2,
+    1.49
+   ],
+   "bbox_min": [
+    -0.73,
+    0,
+    -0.75
+   ],
+   "bbox_max": [
+    0.73,
+    1.2,
+    0.75
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.759,
+    0.759,
+    0.759
+   ],
+   "source_height_units": 1.582,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Scale 0.5–1.8.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Bush",
+   "source": "https://poly.pizza/m/EoTERLq3z2",
+   "attribution": null
+  },
+  {
+   "id": "bush_flowering",
+   "category": "plants",
+   "path": "models/plants/bush_flowering.glb",
+   "name": "Green shrub with pink flowers",
+   "tracks": [
+    "carmel",
+    "monterey",
+    "salinas"
+   ],
+   "kb": 201,
+   "tris": 1368,
+   "height_m": 1.2,
+   "size_m": [
+    1.45,
+    1.2,
+    1.49
+   ],
+   "bbox_min": [
+    -0.73,
+    0,
+    -0.75
+   ],
+   "bbox_max": [
+    0.73,
+    1.2,
+    0.75
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.759,
+    0.759,
+    0.759
+   ],
+   "source_height_units": 1.582,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.5–1.5.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Bush with Flowers",
+   "source": "https://poly.pizza/m/U1ymDy8tbY",
+   "attribution": null
+  },
+  {
+   "id": "fern",
+   "category": "plants",
+   "path": "models/plants/fern.glb",
+   "name": "Fern (sword-fern understorey)",
+   "tracks": [
+    "bigsur"
+   ],
+   "kb": 70,
+   "tris": 288,
+   "height_m": 0.59,
+   "size_m": [
+    2,
+    0.59,
+    1.88
+   ],
+   "bbox_min": [
+    -1,
+    0,
+    -0.94
+   ],
+   "bbox_max": [
+    1,
+    0.59,
+    0.94
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.221,
+    0.221,
+    0.221
+   ],
+   "source_height_units": 2.689,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Under redwoods. Scale 0.6–1.5.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Fern",
+   "source": "https://poly.pizza/m/jqcanvH7D6",
+   "attribution": null
+  },
+  {
+   "id": "grass_tuft",
+   "category": "plants",
+   "path": "models/plants/grass_tuft.glb",
+   "name": "Green grass tuft",
+   "tracks": [
+    "all"
+   ],
+   "kb": 14,
+   "tris": 155,
+   "height_m": 0.5,
+   "size_m": [
+    0.24,
+    0.5,
+    0.28
+   ],
+   "bbox_min": [
+    -0.12,
+    0,
+    -0.14
+   ],
+   "bbox_max": [
+    0.12,
+    0.5,
+    0.14
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.375,
+    0.375,
+    0.375
+   ],
+   "source_height_units": 1.334,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Mesh blades, opaque (no alpha). Instance heavily.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Grass",
+   "source": "https://poly.pizza/m/vUJjrRsFp4",
+   "attribution": null
+  },
+  {
+   "id": "grass_dry_a",
+   "category": "plants",
+   "path": "models/plants/grass_dry_a.glb",
+   "name": "Dry golden grass tuft (short, wispy)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 31,
+   "tris": 494,
+   "height_m": 0.55,
+   "size_m": [
+    0.68,
+    0.55,
+    0.62
+   ],
+   "bbox_min": [
+    -0.34,
+    0,
+    -0.31
+   ],
+   "bbox_max": [
+    0.34,
+    0.55,
+    0.31
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.513,
+    0.513,
+    0.513
+   ],
+   "source_height_units": 1.072,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "California summer grass. Mesh blades, opaque.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Grass Wispy",
+   "source": "https://poly.pizza/m/Msr9zx66VU",
+   "attribution": null
+  },
+  {
+   "id": "grass_dry_b",
+   "category": "plants",
+   "path": "models/plants/grass_dry_b.glb",
+   "name": "Dry golden grass tuft (taller, wispy)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 35,
+   "tris": 622,
+   "height_m": 0.8,
+   "size_m": [
+    0.74,
+    0.8,
+    0.76
+   ],
+   "bbox_min": [
+    -0.37,
+    0,
+    -0.38
+   ],
+   "bbox_max": [
+    0.37,
+    0.8,
+    0.38
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.479,
+    0.479,
+    0.479
+   ],
+   "source_height_units": 1.672,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Mesh blades, opaque.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Grass Wispy",
+   "source": "https://poly.pizza/m/6EzB7VA6vb",
+   "attribution": null
+  },
+  {
+   "id": "grass_tall",
+   "category": "plants",
+   "path": "models/plants/grass_tall.glb",
+   "name": "Tall green grass / reeds",
+   "tracks": [
+    "salinas",
+    "bigsur"
+   ],
+   "kb": 22,
+   "tris": 326,
+   "height_m": 1,
+   "size_m": [
+    0.48,
+    1,
+    0.53
+   ],
+   "bbox_min": [
+    -0.24,
+    0,
+    -0.27
+   ],
+   "bbox_max": [
+    0.24,
+    1,
+    0.27
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.534,
+    0.534,
+    0.534
+   ],
+   "source_height_units": 1.873,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Creek beds, ditches.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Tall Grass",
+   "source": "https://poly.pizza/m/JSIYtscPmP",
+   "attribution": null
+  },
+  {
+   "id": "dune_grass",
+   "category": "plants",
+   "path": "models/plants/dune_grass.glb",
+   "name": "Dune grass (tall grass recoloured pale sea-green)",
+   "tracks": [
+    "carmel",
+    "monterey"
+   ],
+   "kb": 22,
+   "tris": 326,
+   "height_m": 0.8,
+   "size_m": [
+    0.38,
+    0.8,
+    0.42
+   ],
+   "bbox_min": [
+    -0.19,
+    0,
+    -0.21
+   ],
+   "bbox_max": [
+    0.19,
+    0.8,
+    0.21
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.427,
+    0.427,
+    0.427
+   ],
+   "source_height_units": 1.873,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "For Carmel beach dunes. Scale 0.6–1.3.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Tall Grass",
+   "source": "https://poly.pizza/m/JSIYtscPmP",
+   "attribution": null
+  },
+  {
+   "id": "wildflowers_pink",
+   "category": "plants",
+   "path": "models/plants/wildflowers_pink.glb",
+   "name": "Wildflower clump, pink",
+   "tracks": [
+    "all"
+   ],
+   "kb": 153,
+   "tris": 755,
+   "height_m": 0.5,
+   "size_m": [
+    0.36,
+    0.5,
+    0.39
+   ],
+   "bbox_min": [
+    -0.18,
+    0,
+    -0.19
+   ],
+   "bbox_max": [
+    0.18,
+    0.5,
+    0.19
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.243,
+    0.243,
+    0.243
+   ],
+   "source_height_units": 2.055,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Scale 0.6–1.4.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Flower Group",
+   "source": "https://poly.pizza/m/hfPzQAedOe",
+   "attribution": null
+  },
+  {
+   "id": "wildflowers_yellow",
+   "category": "plants",
+   "path": "models/plants/wildflowers_yellow.glb",
+   "name": "Wildflower clump, yellow spikes (bush lupine / mustard look)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 193,
+   "tris": 1690,
+   "height_m": 0.6,
+   "size_m": [
+    0.43,
+    0.6,
+    0.33
+   ],
+   "bbox_min": [
+    -0.21,
+    0,
+    -0.16
+   ],
+   "bbox_max": [
+    0.21,
+    0.6,
+    0.16
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.241,
+    0.241,
+    0.241
+   ],
+   "source_height_units": 2.487,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Salinas mustard fields, Big Sur bluffs.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Flower Group",
+   "source": "https://poly.pizza/m/LqTljN6Wg2",
+   "attribution": null
+  },
+  {
+   "id": "boulder_a",
+   "category": "rocks",
+   "path": "models/rocks/boulder_a.glb",
+   "name": "Boulder, flat-topped, mossy top",
+   "tracks": [
+    "all"
+   ],
+   "kb": 109,
+   "tris": 244,
+   "height_m": 1.9,
+   "size_m": [
+    3.05,
+    1.9,
+    2.48
+   ],
+   "bbox_min": [
+    -1.52,
+    0,
+    -1.24
+   ],
+   "bbox_max": [
+    1.52,
+    1.9,
+    1.24
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 1.899,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Scale 0.3–3. Sink ~10 % into the ground.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Rock Medium",
+   "source": "https://poly.pizza/m/KZdEP3uUpa",
+   "attribution": null
+  },
+  {
+   "id": "boulder_b",
+   "category": "rocks",
+   "path": "models/rocks/boulder_b.glb",
+   "name": "Boulder, rounded",
+   "tracks": [
+    "all"
+   ],
+   "kb": 113,
+   "tris": 342,
+   "height_m": 2.26,
+   "size_m": [
+    3.23,
+    2.26,
+    2.99
+   ],
+   "bbox_min": [
+    -1.61,
+    0,
+    -1.49
+   ],
+   "bbox_max": [
+    1.61,
+    2.26,
+    1.49
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 2.26,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Scale 0.3–3.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Rock Medium",
+   "source": "https://poly.pizza/m/s1OJ3bBzqc",
+   "attribution": null
+  },
+  {
+   "id": "boulder_c",
+   "category": "rocks",
+   "path": "models/rocks/boulder_c.glb",
+   "name": "Boulder, blocky/tall",
+   "tracks": [
+    "all"
+   ],
+   "kb": 119,
+   "tris": 522,
+   "height_m": 2.32,
+   "size_m": [
+    3.42,
+    2.32,
+    3.48
+   ],
+   "bbox_min": [
+    -1.71,
+    0,
+    -1.74
+   ],
+   "bbox_max": [
+    1.71,
+    2.32,
+    1.74
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 2.316,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Scale 0.3–3.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Rock Medium",
+   "source": "https://poly.pizza/m/JQxF95498B",
+   "attribution": null
+  },
+  {
+   "id": "sea_stack_a",
+   "category": "rocks",
+   "path": "models/rocks/sea_stack_a.glb",
+   "name": "Sea stack (boulder_c stretched to ~24 m tall)",
+   "tracks": [
+    "bigsur",
+    "carmel",
+    "monterey"
+   ],
+   "kb": 119,
+   "tris": 522,
+   "height_m": 24.32,
+   "size_m": [
+    20.52,
+    24.32,
+    20.86
+   ],
+   "bbox_min": [
+    -10.26,
+    0,
+    -10.43
+   ],
+   "bbox_max": [
+    10.26,
+    24.32,
+    10.43
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    6,
+    10.5,
+    6
+   ],
+   "source_height_units": 2.316,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Place in the surf, base ~3 m under water. Texture is stretched; fine at distance.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Rock Medium",
+   "source": "https://poly.pizza/m/JQxF95498B",
+   "attribution": null
+  },
+  {
+   "id": "sea_stack_b",
+   "category": "rocks",
+   "path": "models/rocks/sea_stack_b.glb",
+   "name": "Sea stack, broad (boulder_b stretched to ~18 m)",
+   "tracks": [
+    "bigsur",
+    "carmel",
+    "monterey"
+   ],
+   "kb": 113,
+   "tris": 342,
+   "height_m": 18.08,
+   "size_m": [
+    19.35,
+    18.08,
+    17.93
+   ],
+   "bbox_min": [
+    -9.68,
+    0,
+    -8.97
+   ],
+   "bbox_max": [
+    9.68,
+    18.08,
+    8.97
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    6,
+    8,
+    6
+   ],
+   "source_height_units": 2.26,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Rotate/scale for variety.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Rock Medium",
+   "source": "https://poly.pizza/m/s1OJ3bBzqc",
+   "attribution": null
+  },
+  {
+   "id": "cliff_chunk",
+   "category": "rocks",
+   "path": "models/rocks/cliff_chunk.glb",
+   "name": "Cliff / headland chunk (boulder_a stretched to ~11 m tall, 24 m wide)",
+   "tracks": [
+    "bigsur",
+    "carmel"
+   ],
+   "kb": 109,
+   "tris": 244,
+   "height_m": 11.39,
+   "size_m": [
+    24.39,
+    11.39,
+    19.83
+   ],
+   "bbox_min": [
+    -12.2,
+    0,
+    -9.92
+   ],
+   "bbox_max": [
+    12.2,
+    11.39,
+    9.92
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    8,
+    6,
+    8
+   ],
+   "source_height_units": 1.899,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Embed into cliff faces / road cuttings.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Rock Medium",
+   "source": "https://poly.pizza/m/KZdEP3uUpa",
+   "attribution": null
+  },
+  {
+   "id": "man_a",
+   "category": "people",
+   "path": "models/people/man_a.glb",
+   "name": "Man, T-shirt and shorts (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 436,
+   "tris": 1852,
+   "height_m": 1.78,
+   "size_m": [
+    1.91,
+    1.78,
+    0.35
+   ],
+   "bbox_min": [
+    -0.96,
+    0,
+    -0.15
+   ],
+   "bbox_max": [
+    0.96,
+    1.78,
+    0.2
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.368,
+    0.368,
+    0.368
+   ],
+   "source_height_units": 4.841,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Man_Clapping",
+    "HumanArmature|Man_Idle",
+    "HumanArmature|Man_Sitting",
+    "HumanArmature|Man_Standing",
+    "HumanArmature|Man_Walk"
+   ],
+   "draw_calls": 6,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Man",
+   "source": "https://poly.pizza/m/HMnuH5geEG",
+   "attribution": null
+  },
+  {
+   "id": "man_b",
+   "category": "people",
+   "path": "models/people/man_b.glb",
+   "name": "Man, red shirt (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 440,
+   "tris": 1854,
+   "height_m": 1.78,
+   "size_m": [
+    1.91,
+    1.78,
+    0.35
+   ],
+   "bbox_min": [
+    -0.96,
+    0,
+    -0.15
+   ],
+   "bbox_max": [
+    0.96,
+    1.78,
+    0.2
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.368,
+    0.368,
+    0.368
+   ],
+   "source_height_units": 4.841,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Man_Clapping",
+    "HumanArmature|Man_Idle",
+    "HumanArmature|Man_Sitting",
+    "HumanArmature|Man_Standing",
+    "HumanArmature|Man_Walk"
+   ],
+   "draw_calls": 9,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Man",
+   "source": "https://poly.pizza/m/fjHyMd5Wxw",
+   "attribution": null
+  },
+  {
+   "id": "man_long_sleeves",
+   "category": "people",
+   "path": "models/people/man_long_sleeves.glb",
+   "name": "Man, long sleeves (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 447,
+   "tris": 1970,
+   "height_m": 1.8,
+   "size_m": [
+    1.93,
+    1.8,
+    0.38
+   ],
+   "bbox_min": [
+    -0.97,
+    0,
+    -0.18
+   ],
+   "bbox_max": [
+    0.97,
+    1.8,
+    0.2
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.372,
+    0.372,
+    0.372
+   ],
+   "source_height_units": 4.841,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Man_Clapping",
+    "HumanArmature|Man_Idle",
+    "HumanArmature|Man_Sitting",
+    "HumanArmature|Man_Standing",
+    "HumanArmature|Man_Walk"
+   ],
+   "draw_calls": 5,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Man in Long Sleeves",
+   "source": "https://poly.pizza/m/DLptRuewTn",
+   "attribution": null
+  },
+  {
+   "id": "man_suit",
+   "category": "people",
+   "path": "models/people/man_suit.glb",
+   "name": "Man in suit (officials / commentators) (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 485,
+   "tris": 2058,
+   "height_m": 1.8,
+   "size_m": [
+    1.93,
+    1.8,
+    0.39
+   ],
+   "bbox_min": [
+    -0.97,
+    0,
+    -0.19
+   ],
+   "bbox_max": [
+    0.97,
+    1.8,
+    0.2
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.372,
+    0.372,
+    0.372
+   ],
+   "source_height_units": 4.841,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Man_Clapping",
+    "HumanArmature|Man_Idle",
+    "HumanArmature|Man_Sitting",
+    "HumanArmature|Man_Standing",
+    "HumanArmature|Man_Walk"
+   ],
+   "draw_calls": 7,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Man in Suit",
+   "source": "https://poly.pizza/m/mQnGoME1ez",
+   "attribution": null
+  },
+  {
+   "id": "woman_casual",
+   "category": "people",
+   "path": "models/people/woman_casual.glb",
+   "name": "Woman, casual (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 526,
+   "tris": 2776,
+   "height_m": 1.66,
+   "size_m": [
+    1.79,
+    1.66,
+    0.35
+   ],
+   "bbox_min": [
+    -0.9,
+    0,
+    -0.15
+   ],
+   "bbox_max": [
+    0.9,
+    1.66,
+    0.19
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.357,
+    0.357,
+    0.357
+   ],
+   "source_height_units": 4.655,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Female_Clapping",
+    "HumanArmature|Female_Idle",
+    "HumanArmature|Female_Sitting",
+    "HumanArmature|Female_Standing",
+    "HumanArmature|Female_Walk"
+   ],
+   "draw_calls": 8,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Woman Casual",
+   "source": "https://poly.pizza/m/jpKRgGDxhk",
+   "attribution": null
+  },
+  {
+   "id": "woman",
+   "category": "people",
+   "path": "models/people/woman.glb",
+   "name": "Woman, red top (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 451,
+   "tris": 2004,
+   "height_m": 1.66,
+   "size_m": [
+    1.79,
+    1.66,
+    0.34
+   ],
+   "bbox_min": [
+    -0.9,
+    0,
+    -0.14
+   ],
+   "bbox_max": [
+    0.9,
+    1.66,
+    0.19
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.357,
+    0.357,
+    0.357
+   ],
+   "source_height_units": 4.653,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Female_Clapping",
+    "HumanArmature|Female_Idle",
+    "HumanArmature|Female_Sitting",
+    "HumanArmature|Female_Standing",
+    "HumanArmature|Female_Walk"
+   ],
+   "draw_calls": 10,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Woman",
+   "source": "https://poly.pizza/m/AQsd9ngvKU",
+   "attribution": null
+  },
+  {
+   "id": "woman_tank_top",
+   "category": "people",
+   "path": "models/people/woman_tank_top.glb",
+   "name": "Woman, tank top (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 447,
+   "tris": 1983,
+   "height_m": 1.66,
+   "size_m": [
+    1.78,
+    1.66,
+    0.34
+   ],
+   "bbox_min": [
+    -0.89,
+    0,
+    -0.15
+   ],
+   "bbox_max": [
+    0.89,
+    1.66,
+    0.19
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.354,
+    0.354,
+    0.354
+   ],
+   "source_height_units": 4.687,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Female_Clapping",
+    "HumanArmature|Female_Idle",
+    "HumanArmature|Female_Sitting",
+    "HumanArmature|Female_Standing",
+    "HumanArmature|Female_Walk"
+   ],
+   "draw_calls": 7,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Woman in Tank Top",
+   "source": "https://poly.pizza/m/XqzeZGB7iU",
+   "attribution": null
+  },
+  {
+   "id": "woman_dress",
+   "category": "people",
+   "path": "models/people/woman_dress.glb",
+   "name": "Woman in dress (rigged; clips Clapping, Idle, Standing, Sitting, Walk)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 425,
+   "tris": 1786,
+   "height_m": 1.66,
+   "size_m": [
+    1.78,
+    1.66,
+    0.46
+   ],
+   "bbox_min": [
+    -0.89,
+    0,
+    -0.24
+   ],
+   "bbox_max": [
+    0.89,
+    1.66,
+    0.22
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.354,
+    0.354,
+    0.354
+   ],
+   "source_height_units": 4.687,
+   "skinned": true,
+   "animations": [
+    "HumanArmature|Female_Clapping",
+    "HumanArmature|Female_Idle",
+    "HumanArmature|Female_Sitting",
+    "HumanArmature|Female_Standing",
+    "HumanArmature|Female_Walk"
+   ],
+   "draw_calls": 5,
+   "note": "Source is ~4.8 m tall; root node scaled 0.37. Play \"…Clapping\" for cheering spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Woman in Dress",
+   "source": "https://poly.pizza/m/zMyPlQXBzq",
+   "attribution": null
+  },
+  {
+   "id": "farmer",
+   "category": "people",
+   "path": "models/people/farmer.glb",
+   "name": "Farmer with hat (rigged; clips Idle, Idle_Neutral, Wave, Walk, Interact)",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 1065,
+   "tris": 5476,
+   "height_m": 1.8,
+   "size_m": [
+    1.62,
+    1.8,
+    0.39
+   ],
+   "bbox_min": [
+    -0.81,
+    0,
+    -0.11
+   ],
+   "bbox_max": [
+    0.81,
+    1.8,
+    0.28
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.97,
+    0.97,
+    0.97
+   ],
+   "source_height_units": 1.856,
+   "skinned": true,
+   "animations": [
+    "CharacterArmature|Idle",
+    "CharacterArmature|Idle_Neutral",
+    "CharacterArmature|Interact",
+    "CharacterArmature|Walk",
+    "CharacterArmature|Wave"
+   ],
+   "draw_calls": 12,
+   "note": "Wave clip for spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Farmer",
+   "source": "https://poly.pizza/m/7pn3R6hPvE",
+   "attribution": null
+  },
+  {
+   "id": "beach_character",
+   "category": "people",
+   "path": "models/people/beach_character.glb",
+   "name": "Beach-goer in shorts (rigged; clips Idle, Idle_Neutral, Wave, Walk, Interact)",
+   "tracks": [
+    "carmel",
+    "monterey"
+   ],
+   "kb": 1177,
+   "tris": 6574,
+   "height_m": 1.8,
+   "size_m": [
+    1.6,
+    1.8,
+    0.36
+   ],
+   "bbox_min": [
+    -0.8,
+    0,
+    -0.08
+   ],
+   "bbox_max": [
+    0.8,
+    1.8,
+    0.28
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.956,
+    0.956,
+    0.956
+   ],
+   "source_height_units": 1.883,
+   "skinned": true,
+   "animations": [
+    "CharacterArmature|Idle",
+    "CharacterArmature|Idle_Neutral",
+    "CharacterArmature|Interact",
+    "CharacterArmature|Walk",
+    "CharacterArmature|Wave"
+   ],
+   "draw_calls": 12,
+   "note": "Wave clip for spectators.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Beach Character",
+   "source": "https://poly.pizza/m/DojKLcO34E",
+   "attribution": null
+  },
+  {
+   "id": "dog_shiba",
+   "category": "animals",
+   "path": "models/animals/dog_shiba.glb",
+   "name": "Dog (Shiba Inu), rigged; clips Idle, Idle_2, Walk, Gallop, Eating",
+   "tracks": [
+    "carmel",
+    "all"
+   ],
+   "kb": 698,
+   "tris": 1950,
+   "height_m": 0.62,
+   "size_m": [
+    0.21,
+    0.62,
+    0.79
+   ],
+   "bbox_min": [
+    -0.11,
+    0,
+    -0.29
+   ],
+   "bbox_max": [
+    0.11,
+    0.62,
+    0.5
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "between the feet (source origin), y=0 at the soles",
+   "baked_scale": [
+    0.2,
+    0.2,
+    0.2
+   ],
+   "source_height_units": 3.096,
+   "skinned": true,
+   "animations": [
+    "Eating",
+    "Gallop",
+    "Walk",
+    "Idle_2",
+    "Idle"
+   ],
+   "draw_calls": 6,
+   "note": "Carmel is famously dog friendly.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Shiba Inu",
+   "source": "https://poly.pizza/m/y4wdQpg767",
+   "attribution": null
+  },
+  {
+   "id": "sea_lion",
+   "category": "animals",
+   "path": "models/animals/sea_lion.glb",
+   "name": "California sea lion, propped up on flippers (static)",
+   "tracks": [
+    "monterey",
+    "bigsur"
+   ],
+   "kb": 54,
+   "tris": 714,
+   "height_m": 1.05,
+   "size_m": [
+    1.33,
+    1.05,
+    1.23
+   ],
+   "bbox_min": [
+    -0.66,
+    0,
+    -0.62
+   ],
+   "bbox_max": [
+    0.66,
+    1.05,
+    0.62
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.139,
+    0.139,
+    0.139
+   ],
+   "source_height_units": 7.539,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Put several on wharf pilings, buoys and rocks.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Sea lion",
+   "source": "https://poly.pizza/m/45HRvXYpvUG",
+   "attribution": "\"Sea lion\" by Poly by Google (https://poly.pizza/m/45HRvXYpvUG), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "seagull_standing",
+   "category": "animals",
+   "path": "models/animals/seagull_standing.glb",
+   "name": "Western gull, standing (static)",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 26,
+   "tris": 434,
+   "height_m": 0.42,
+   "size_m": [
+    0.17,
+    0.42,
+    0.49
+   ],
+   "bbox_min": [
+    -0.08,
+    0,
+    -0.24
+   ],
+   "bbox_max": [
+    0.08,
+    0.42,
+    0.24
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.00722,
+    0.00722,
+    0.00722
+   ],
+   "source_height_units": 58.203,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Perch on posts, railings, rocks.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Seagull",
+   "source": "https://poly.pizza/m/0WRzrtCIIRp",
+   "attribution": "\"Seagull\" by Poly by Google (https://poly.pizza/m/0WRzrtCIIRp), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "seagull_flying",
+   "category": "animals",
+   "path": "models/animals/seagull_flying.glb",
+   "name": "Gull in flight, wings spread (static)",
+   "tracks": [
+    "monterey",
+    "carmel",
+    "bigsur"
+   ],
+   "kb": 31,
+   "tris": 410,
+   "height_m": 0.65,
+   "size_m": [
+    1.21,
+    0.65,
+    1.3
+   ],
+   "bbox_min": [
+    -0.6,
+    0,
+    -0.65
+   ],
+   "bbox_max": [
+    0.6,
+    0.65,
+    0.65
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0147,
+    0.0147,
+    0.0147
+   ],
+   "source_height_units": 44.244,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Wingspan ~1.3 m. Animate by moving/banking the whole model.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Flying seagull",
+   "source": "https://poly.pizza/m/6Tpj_vcWP3f",
+   "attribution": "\"Flying seagull\" by Poly by Google (https://poly.pizza/m/6Tpj_vcWP3f), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "pelican_brown",
+   "category": "animals",
+   "path": "models/animals/pelican_brown.glb",
+   "name": "Brown pelican, standing (static)",
+   "tracks": [
+    "monterey",
+    "bigsur",
+    "carmel"
+   ],
+   "kb": 94,
+   "tris": 1026,
+   "height_m": 1.05,
+   "size_m": [
+    0.46,
+    1.05,
+    0.89
+   ],
+   "bbox_min": [
+    -0.23,
+    0,
+    -0.44
+   ],
+   "bbox_max": [
+    0.23,
+    1.05,
+    0.44
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.12,
+    0.12,
+    0.12
+   ],
+   "source_height_units": 8.775,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Perched on piers and rocks.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Brown pelican",
+   "source": "https://poly.pizza/m/2oAiRa4fave",
+   "attribution": "\"Brown pelican\" by Poly by Google (https://poly.pizza/m/2oAiRa4fave), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "flag_red",
+   "category": "props",
+   "path": "models/props/flag_red.glb",
+   "name": "Red flag on a wooden pole",
+   "tracks": [
+    "all"
+   ],
+   "kb": 13,
+   "tris": 216,
+   "height_m": 4.06,
+   "size_m": [
+    2.05,
+    4.06,
+    0.28
+   ],
+   "bbox_min": [
+    -1.03,
+    0,
+    -0.14
+   ],
+   "bbox_max": [
+    1.03,
+    4.06,
+    0.14
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 4.065,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Pole ~4 m. Recolour material for team flags.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Flag",
+   "source": "https://poly.pizza/m/FuOkF3WBrx",
+   "attribution": null
+  },
+  {
+   "id": "flags_triple",
+   "category": "props",
+   "path": "models/props/flags_triple.glb",
+   "name": "Three pennant flags on poles (blue, red, purple)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 171,
+   "tris": 2316,
+   "height_m": 4.31,
+   "size_m": [
+    9.17,
+    4.31,
+    1.04
+   ],
+   "bbox_min": [
+    -4.58,
+    0,
+    -0.52
+   ],
+   "bbox_max": [
+    4.58,
+    4.31,
+    0.52
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 4.314,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Start/finish dressing.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "MiniPoly",
+   "title": "Flags",
+   "source": "https://poly.pizza/m/ahsyGj1RmE",
+   "attribution": null
+  },
+  {
+   "id": "pennant_marker",
+   "category": "props",
+   "path": "models/props/pennant_marker.glb",
+   "name": "Course marker flag on weighted stand (red pennant)",
+   "tracks": [
+    "all"
+   ],
+   "kb": 9,
+   "tris": 322,
+   "height_m": 2.33,
+   "size_m": [
+    1.41,
+    2.33,
+    0.38
+   ],
+   "bbox_min": [
+    -0.71,
+    0,
+    -0.19
+   ],
+   "bbox_max": [
+    0.71,
+    2.33,
+    0.19
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 2.332,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Line the track edge.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Goal Flag",
+   "source": "https://poly.pizza/m/onAi7dx56P",
+   "attribution": null
+  },
+  {
+   "id": "canopy_striped",
+   "category": "props",
+   "path": "models/props/canopy_striped.glb",
+   "name": "Market canopy with red/white striped roof, open sides",
+   "tracks": [
+    "all"
+   ],
+   "kb": 23,
+   "tris": 384,
+   "height_m": 3,
+   "size_m": [
+    6.1,
+    3,
+    3.17
+   ],
+   "bbox_min": [
+    -3.05,
+    0,
+    -1.58
+   ],
+   "bbox_max": [
+    3.05,
+    3,
+    1.58
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.629,
+    0.629,
+    0.629
+   ],
+   "source_height_units": 4.768,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "Food stalls, spectator shade.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Canopy",
+   "source": "https://poly.pizza/m/40tUFNg2fu4",
+   "attribution": "\"Canopy\" by Poly by Google (https://poly.pizza/m/40tUFNg2fu4), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "canopy_popup_red",
+   "category": "props",
+   "path": "models/props/canopy_popup_red.glb",
+   "name": "Pop-up event tent, red, one side wall",
+   "tracks": [
+    "all"
+   ],
+   "kb": 10,
+   "tris": 150,
+   "height_m": 3,
+   "size_m": [
+    3.1,
+    3,
+    3.1
+   ],
+   "bbox_min": [
+    -1.55,
+    0,
+    -1.55
+   ],
+   "bbox_max": [
+    1.55,
+    3,
+    1.55
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0038,
+    0.0038,
+    0.0038
+   ],
+   "source_height_units": 790.054,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Team / timing tents.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Canopy",
+   "source": "https://poly.pizza/m/eXvS3l7k4DJ",
+   "attribution": "\"Canopy\" by Poly by Google (https://poly.pizza/m/eXvS3l7k4DJ), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "canopy_popup_white",
+   "category": "props",
+   "path": "models/props/canopy_popup_white.glb",
+   "name": "Pop-up gazebo, white roof with blue legs",
+   "tracks": [
+    "all"
+   ],
+   "kb": 11,
+   "tris": 204,
+   "height_m": 3.2,
+   "size_m": [
+    2.77,
+    3.2,
+    2.43
+   ],
+   "bbox_min": [
+    -1.39,
+    0,
+    -1.21
+   ],
+   "bbox_max": [
+    1.39,
+    3.2,
+    1.21
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0839,
+    0.0839,
+    0.0839
+   ],
+   "source_height_units": 38.159,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Finish-line / VIP tent.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Zsky",
+   "title": "Tent",
+   "source": "https://poly.pizza/m/gQiLVDXMVg",
+   "attribution": "\"Tent\" by Zsky (https://poly.pizza/m/gQiLVDXMVg), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "market_stand_a",
+   "category": "props",
+   "path": "models/props/market_stand_a.glb",
+   "name": "Wooden market stall with striped awning and crates",
+   "tracks": [
+    "salinas",
+    "carmel",
+    "monterey"
+   ],
+   "kb": 82,
+   "tris": 1548,
+   "height_m": 2.8,
+   "size_m": [
+    2.54,
+    2.8,
+    3.18
+   ],
+   "bbox_min": [
+    -1.27,
+    0,
+    -1.59
+   ],
+   "bbox_max": [
+    1.27,
+    2.8,
+    1.59
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.67,
+    2.67,
+    2.67
+   ],
+   "source_height_units": 1.049,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "Fruit / vegetable stand.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Market Stand",
+   "source": "https://poly.pizza/m/DGIM5HGISb",
+   "attribution": null
+  },
+  {
+   "id": "market_stand_b",
+   "category": "props",
+   "path": "models/props/market_stand_b.glb",
+   "name": "Wooden market stall, awning, counter",
+   "tracks": [
+    "salinas",
+    "carmel",
+    "monterey"
+   ],
+   "kb": 61,
+   "tris": 1132,
+   "height_m": 2.8,
+   "size_m": [
+    1.39,
+    2.8,
+    3.1
+   ],
+   "bbox_min": [
+    -0.69,
+    0,
+    -1.55
+   ],
+   "bbox_max": [
+    0.69,
+    2.8,
+    1.55
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.69,
+    2.69,
+    2.69
+   ],
+   "source_height_units": 1.042,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 3,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Market Stand",
+   "source": "https://poly.pizza/m/hts7l0NZxW",
+   "attribution": null
+  },
+  {
+   "id": "picnic_table",
+   "category": "props",
+   "path": "models/props/picnic_table.glb",
+   "name": "Wooden picnic table with attached benches",
+   "tracks": [
+    "all"
+   ],
+   "kb": 22,
+   "tris": 428,
+   "height_m": 0.78,
+   "size_m": [
+    1.93,
+    0.78,
+    1.97
+   ],
+   "bbox_min": [
+    -0.96,
+    0,
+    -0.99
+   ],
+   "bbox_max": [
+    0.96,
+    0.78,
+    0.99
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.89,
+    0.89,
+    0.89
+   ],
+   "source_height_units": 0.877,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "J-Toastie",
+   "title": "Picnic Table",
+   "source": "https://poly.pizza/m/LM6QWe8kFT",
+   "attribution": "\"Picnic Table\" by J-Toastie (https://poly.pizza/m/LM6QWe8kFT), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "picnic_table_cloth",
+   "category": "props",
+   "path": "models/props/picnic_table_cloth.glb",
+   "name": "Picnic table with red-check tablecloth",
+   "tracks": [
+    "all"
+   ],
+   "kb": 45,
+   "tris": 832,
+   "height_m": 0.8,
+   "size_m": [
+    1.48,
+    0.8,
+    1.2
+   ],
+   "bbox_min": [
+    -0.74,
+    0,
+    -0.6
+   ],
+   "bbox_max": [
+    0.74,
+    0.8,
+    0.6
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.789,
+    0.789,
+    0.789
+   ],
+   "source_height_units": 1.014,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 3,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "J-Toastie",
+   "title": "Picnic Table",
+   "source": "https://poly.pizza/m/GQieALI2C4",
+   "attribution": "\"Picnic Table\" by J-Toastie (https://poly.pizza/m/GQieALI2C4), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "bench",
+   "category": "props",
+   "path": "models/props/bench.glb",
+   "name": "Wooden park bench with backrest",
+   "tracks": [
+    "all"
+   ],
+   "kb": 21,
+   "tris": 376,
+   "height_m": 0.85,
+   "size_m": [
+    1.79,
+    0.85,
+    0.65
+   ],
+   "bbox_min": [
+    -0.89,
+    0,
+    -0.33
+   ],
+   "bbox_max": [
+    0.89,
+    0.85,
+    0.33
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.69,
+    2.69,
+    2.69
+   ],
+   "source_height_units": 0.316,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Bench",
+   "source": "https://poly.pizza/m/jLxjFxFRpw",
+   "attribution": null
+  },
+  {
+   "id": "crate",
+   "category": "props",
+   "path": "models/props/crate.glb",
+   "name": "Closed wooden crate",
+   "tracks": [
+    "all"
+   ],
+   "kb": 34,
+   "tris": 784,
+   "height_m": 0.6,
+   "size_m": [
+    0.6,
+    0.6,
+    0.6
+   ],
+   "bbox_min": [
+    -0.3,
+    0,
+    -0.3
+   ],
+   "bbox_max": [
+    0.3,
+    0.6,
+    0.3
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    3.74,
+    3.74,
+    3.74
+   ],
+   "source_height_units": 0.16,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Crate",
+   "source": "https://poly.pizza/m/3OEFd1AWfa",
+   "attribution": null
+  },
+  {
+   "id": "crate_open",
+   "category": "props",
+   "path": "models/props/crate_open.glb",
+   "name": "Open slatted fruit crate (empty)",
+   "tracks": [
+    "salinas",
+    "monterey"
+   ],
+   "kb": 11,
+   "tris": 196,
+   "height_m": 0.3,
+   "size_m": [
+    0.67,
+    0.3,
+    0.55
+   ],
+   "bbox_min": [
+    -0.33,
+    0,
+    -0.28
+   ],
+   "bbox_max": [
+    0.33,
+    0.3,
+    0.28
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.23,
+    1.23,
+    1.23
+   ],
+   "source_height_units": 0.244,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "BlenderVoyage",
+   "title": "Fruit Crate",
+   "source": "https://poly.pizza/m/aXulVWHOeV",
+   "attribution": null
+  },
+  {
+   "id": "barrel",
+   "category": "props",
+   "path": "models/props/barrel.glb",
+   "name": "Wooden barrel",
+   "tracks": [
+    "all"
+   ],
+   "kb": 73,
+   "tris": 1384,
+   "height_m": 0.9,
+   "size_m": [
+    0.7,
+    0.9,
+    0.69
+   ],
+   "bbox_min": [
+    -0.35,
+    0,
+    -0.35
+   ],
+   "bbox_max": [
+    0.35,
+    0.9,
+    0.35
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.668,
+    0.668,
+    0.668
+   ],
+   "source_height_units": 1.347,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 3,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Barrel",
+   "source": "https://poly.pizza/m/ONdghDBByN",
+   "attribution": null
+  },
+  {
+   "id": "life_ring",
+   "category": "props",
+   "path": "models/props/life_ring.glb",
+   "name": "Life ring / float, orange and white, lying flat",
+   "tracks": [
+    "monterey",
+    "carmel"
+   ],
+   "kb": 49,
+   "tris": 3744,
+   "height_m": 0.14,
+   "size_m": [
+    0.76,
+    0.14,
+    0.76
+   ],
+   "bbox_min": [
+    -0.38,
+    0,
+    -0.38
+   ],
+   "bbox_max": [
+    0.38,
+    0.14,
+    0.38
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.00266,
+    0.00266,
+    0.00266
+   ],
+   "source_height_units": 52.106,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "Rotate 90° about X to hang on a post. Also usable as a mooring float.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Life preserver",
+   "source": "https://poly.pizza/m/7n1vrlFN0GH",
+   "attribution": "\"Life preserver\" by Poly by Google (https://poly.pizza/m/7n1vrlFN0GH), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "beach_umbrella_red",
+   "category": "props",
+   "path": "models/props/beach_umbrella_red.glb",
+   "name": "Beach umbrella, red/white",
+   "tracks": [
+    "carmel",
+    "monterey"
+   ],
+   "kb": 18,
+   "tris": 214,
+   "height_m": 2.3,
+   "size_m": [
+    1.94,
+    2.3,
+    1.73
+   ],
+   "bbox_min": [
+    -0.97,
+    0,
+    -0.87
+   ],
+   "bbox_max": [
+    0.97,
+    2.3,
+    0.87
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    3.42,
+    3.42,
+    3.42
+   ],
+   "source_height_units": 0.673,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "S. Paul Michael",
+   "title": "Red/White Beach Umbrella",
+   "source": "https://poly.pizza/m/2li3sdSkmCI",
+   "attribution": "\"Red/White Beach Umbrella\" by S. Paul Michael (https://poly.pizza/m/2li3sdSkmCI), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "beach_umbrella_blue",
+   "category": "props",
+   "path": "models/props/beach_umbrella_blue.glb",
+   "name": "Beach umbrella, blue/white",
+   "tracks": [
+    "carmel",
+    "monterey"
+   ],
+   "kb": 18,
+   "tris": 214,
+   "height_m": 2.3,
+   "size_m": [
+    1.94,
+    2.3,
+    1.73
+   ],
+   "bbox_min": [
+    -0.97,
+    0,
+    -0.87
+   ],
+   "bbox_max": [
+    0.97,
+    2.3,
+    0.87
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    3.42,
+    3.42,
+    3.42
+   ],
+   "source_height_units": 0.673,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "S. Paul Michael",
+   "title": "Blue/White Beach Umbrella",
+   "source": "https://poly.pizza/m/1BLLDjRdxoa",
+   "attribution": "\"Blue/White Beach Umbrella\" by S. Paul Michael (https://poly.pizza/m/1BLLDjRdxoa), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "beach_chair",
+   "category": "props",
+   "path": "models/props/beach_chair.glb",
+   "name": "Folding beach lounger",
+   "tracks": [
+    "carmel"
+   ],
+   "kb": 11,
+   "tris": 264,
+   "height_m": 0.9,
+   "size_m": [
+    0.74,
+    0.9,
+    1.23
+   ],
+   "bbox_min": [
+    -0.37,
+    0,
+    -0.62
+   ],
+   "bbox_max": [
+    0.37,
+    0.9,
+    0.62
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.00572,
+    0.00572,
+    0.00572
+   ],
+   "source_height_units": 157.39,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Beach chair",
+   "source": "https://poly.pizza/m/9TN4PyhWvz1",
+   "attribution": "\"Beach chair\" by Poly by Google (https://poly.pizza/m/9TN4PyhWvz1), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "lifeguard_tower",
+   "category": "props",
+   "path": "models/props/lifeguard_tower.glb",
+   "name": "Lifeguard tower on stilts with ramp (teal hut)",
+   "tracks": [
+    "carmel",
+    "monterey"
+   ],
+   "kb": 217,
+   "tris": 4562,
+   "height_m": 4.2,
+   "size_m": [
+    4.14,
+    4.2,
+    5.04
+   ],
+   "bbox_min": [
+    -2.07,
+    0,
+    -2.52
+   ],
+   "bbox_max": [
+    2.07,
+    4.2,
+    2.52
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.65,
+    1.65,
+    1.65
+   ],
+   "source_height_units": 2.548,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 7,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Daniel Doran",
+   "title": "Lifeguard Tower",
+   "source": "https://poly.pizza/m/eTXK45QuLQT",
+   "attribution": "\"Lifeguard Tower\" by Daniel Doran (https://poly.pizza/m/eTXK45QuLQT), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "barn_big",
+   "category": "farm",
+   "path": "models/farm/barn_big.glb",
+   "name": "Big red barn with gambrel roof and lean-to",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 175,
+   "tris": 4220,
+   "height_m": 11.83,
+   "size_m": [
+    11.59,
+    11.83,
+    12.33
+   ],
+   "bbox_min": [
+    -5.8,
+    0,
+    -6.17
+   ],
+   "bbox_max": [
+    5.8,
+    11.83,
+    6.17
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "source_height_units": 7.887,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Big Barn",
+   "source": "https://poly.pizza/m/q1N3xn2SpC",
+   "attribution": null
+  },
+  {
+   "id": "barn",
+   "category": "farm",
+   "path": "models/farm/barn.glb",
+   "name": "Red barn, gambrel roof",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 118,
+   "tris": 2910,
+   "height_m": 9.01,
+   "size_m": [
+    11.59,
+    9.01,
+    12.33
+   ],
+   "bbox_min": [
+    -5.8,
+    0,
+    -6.17
+   ],
+   "bbox_max": [
+    5.8,
+    9.01,
+    6.17
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "source_height_units": 6.009,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Barn",
+   "source": "https://poly.pizza/m/vSqQNA7ez6",
+   "attribution": null
+  },
+  {
+   "id": "barn_small",
+   "category": "farm",
+   "path": "models/farm/barn_small.glb",
+   "name": "Small red barn",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 89,
+   "tris": 2176,
+   "height_m": 7.44,
+   "size_m": [
+    9.12,
+    7.44,
+    9.41
+   ],
+   "bbox_min": [
+    -4.56,
+    0,
+    -4.71
+   ],
+   "bbox_max": [
+    4.56,
+    7.44,
+    4.71
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "source_height_units": 4.961,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 4,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Small Barn",
+   "source": "https://poly.pizza/m/aTcDP7UERC",
+   "attribution": null
+  },
+  {
+   "id": "barn_open",
+   "category": "farm",
+   "path": "models/farm/barn_open.glb",
+   "name": "Open-sided red hay barn / equipment shed",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 73,
+   "tris": 1612,
+   "height_m": 7.12,
+   "size_m": [
+    8.62,
+    7.12,
+    9.27
+   ],
+   "bbox_min": [
+    -4.31,
+    0,
+    -4.64
+   ],
+   "bbox_max": [
+    4.31,
+    7.12,
+    4.64
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "source_height_units": 4.743,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 5,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Open Barn",
+   "source": "https://poly.pizza/m/ZIdWHxYsUv",
+   "attribution": null
+  },
+  {
+   "id": "silo",
+   "category": "farm",
+   "path": "models/farm/silo.glb",
+   "name": "Red grain silo with dome",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 67,
+   "tris": 1592,
+   "height_m": 13.6,
+   "size_m": [
+    5.5,
+    13.6,
+    5.26
+   ],
+   "bbox_min": [
+    -2.75,
+    0,
+    -2.63
+   ],
+   "bbox_max": [
+    2.75,
+    13.6,
+    2.63
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "source_height_units": 9.069,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 5,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Silo",
+   "source": "https://poly.pizza/m/5GhLrv5Ce3",
+   "attribution": null
+  },
+  {
+   "id": "water_tower",
+   "category": "farm",
+   "path": "models/farm/water_tower.glb",
+   "name": "Wooden water tank on steel lattice tower",
+   "tracks": [
+    "salinas",
+    "monterey"
+   ],
+   "kb": 57,
+   "tris": 1158,
+   "height_m": 14.07,
+   "size_m": [
+    3.97,
+    14.07,
+    4.06
+   ],
+   "bbox_min": [
+    -1.98,
+    0,
+    -2.03
+   ],
+   "bbox_max": [
+    1.98,
+    14.07,
+    2.03
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.5,
+    1.5,
+    1.5
+   ],
+   "source_height_units": 9.38,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Water Tower",
+   "source": "https://poly.pizza/m/tMK8bhapAK",
+   "attribution": null
+  },
+  {
+   "id": "windpump",
+   "category": "farm",
+   "path": "models/farm/windpump.glb",
+   "name": "American farm windpump (multi-blade windmill on wooden tower)",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 62,
+   "tris": 342,
+   "height_m": 9,
+   "size_m": [
+    3.39,
+    9,
+    3.57
+   ],
+   "bbox_min": [
+    -1.69,
+    0,
+    -1.79
+   ],
+   "bbox_max": [
+    1.69,
+    9,
+    1.79
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    3.57,
+    3.57,
+    3.57
+   ],
+   "source_height_units": 2.52,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Wind turbine",
+   "source": "https://poly.pizza/m/6I2DF2AZDgB",
+   "attribution": "\"Wind turbine\" by Poly by Google (https://poly.pizza/m/6I2DF2AZDgB), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "farmhouse",
+   "category": "farm",
+   "path": "models/farm/farmhouse.glb",
+   "name": "White two-storey clapboard farmhouse with porch",
+   "tracks": [
+    "salinas",
+    "carmel"
+   ],
+   "kb": 262,
+   "tris": 2047,
+   "height_m": 9.5,
+   "size_m": [
+    13.06,
+    9.5,
+    9.86
+   ],
+   "bbox_min": [
+    -6.53,
+    0,
+    -4.93
+   ],
+   "bbox_max": [
+    6.53,
+    9.5,
+    4.93
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.515,
+    0.515,
+    0.515
+   ],
+   "source_height_units": 18.429,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Farm house",
+   "source": "https://poly.pizza/m/bHyQe5jzdiQ",
+   "attribution": "\"Farm house\" by Poly by Google (https://poly.pizza/m/bHyQe5jzdiQ), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "tractor",
+   "category": "farm",
+   "path": "models/farm/tractor.glb",
+   "name": "Red farm tractor",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 219,
+   "tris": 2766,
+   "height_m": 2.6,
+   "size_m": [
+    2.82,
+    2.6,
+    4.67
+   ],
+   "bbox_min": [
+    -1.41,
+    0,
+    -2.34
+   ],
+   "bbox_max": [
+    1.41,
+    2.6,
+    2.34
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.302,
+    0.302,
+    0.302
+   ],
+   "source_height_units": 8.616,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Tractor",
+   "source": "https://poly.pizza/m/5TGoA5N14c5",
+   "attribution": "\"Tractor\" by Poly by Google (https://poly.pizza/m/5TGoA5N14c5), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "fence_rail",
+   "category": "farm",
+   "path": "models/farm/fence_rail.glb",
+   "name": "Wooden rail fence section, 5.9 m long",
+   "tracks": [
+    "salinas",
+    "all"
+   ],
+   "kb": 10,
+   "tris": 188,
+   "height_m": 1.1,
+   "size_m": [
+    5.89,
+    1.1,
+    0.17
+   ],
+   "bbox_min": [
+    -2.95,
+    0,
+    -0.08
+   ],
+   "bbox_max": [
+    2.95,
+    1.1,
+    0.08
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 1.097,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Runs along X; tile every 5.9 m.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Fence",
+   "source": "https://poly.pizza/m/e02PFKKhbr",
+   "attribution": null
+  },
+  {
+   "id": "fence_picket_wood",
+   "category": "farm",
+   "path": "models/farm/fence_picket_wood.glb",
+   "name": "Wooden picket fence section, 5.9 m long",
+   "tracks": [
+    "salinas",
+    "all"
+   ],
+   "kb": 16,
+   "tris": 324,
+   "height_m": 1.17,
+   "size_m": [
+    5.89,
+    1.17,
+    0.17
+   ],
+   "bbox_min": [
+    -2.95,
+    0,
+    -0.08
+   ],
+   "bbox_max": [
+    2.95,
+    1.17,
+    0.08
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1,
+    1,
+    1
+   ],
+   "source_height_units": 1.173,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Runs along X; tile every 5.9 m.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Fence",
+   "source": "https://poly.pizza/m/U7g0Wxpt63",
+   "attribution": null
+  },
+  {
+   "id": "lettuce",
+   "category": "farm",
+   "path": "models/farm/lettuce.glb",
+   "name": "Lettuce head (crop rows)",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 32,
+   "tris": 592,
+   "height_m": 0.25,
+   "size_m": [
+    0.3,
+    0.25,
+    0.3
+   ],
+   "bbox_min": [
+    -0.15,
+    0,
+    -0.15
+   ],
+   "bbox_max": [
+    0.15,
+    0.25,
+    0.15
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.183,
+    0.183,
+    0.183
+   ],
+   "source_height_units": 1.368,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Instance in rows ~0.35 m apart.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Lettuce",
+   "source": "https://poly.pizza/m/MEmUwHUHNR",
+   "attribution": null
+  },
+  {
+   "id": "cabbage",
+   "category": "farm",
+   "path": "models/farm/cabbage.glb",
+   "name": "Cabbage head",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 9,
+   "tris": 144,
+   "height_m": 0.25,
+   "size_m": [
+    0.31,
+    0.25,
+    0.33
+   ],
+   "bbox_min": [
+    -0.15,
+    0,
+    -0.16
+   ],
+   "bbox_max": [
+    0.15,
+    0.25,
+    0.16
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.813,
+    0.813,
+    0.813
+   ],
+   "source_height_units": 0.307,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Kenney",
+   "title": "Cabbage",
+   "source": "https://poly.pizza/m/6urnIRBhzr",
+   "attribution": null
+  },
+  {
+   "id": "crate_lettuce",
+   "category": "farm",
+   "path": "models/farm/crate_lettuce.glb",
+   "name": "Produce crate full of lettuce",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 77,
+   "tris": 1980,
+   "height_m": 0.42,
+   "size_m": [
+    0.84,
+    0.42,
+    0.84
+   ],
+   "bbox_min": [
+    -0.42,
+    0,
+    -0.42
+   ],
+   "bbox_max": [
+    0.42,
+    0.42,
+    0.42
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.421,
+    0.421,
+    0.421
+   ],
+   "source_height_units": 0.998,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Kay Lousberg",
+   "title": "Crate Lettuce",
+   "source": "https://poly.pizza/m/INP7sbCv4J",
+   "attribution": null
+  },
+  {
+   "id": "crate_tomatoes",
+   "category": "farm",
+   "path": "models/farm/crate_tomatoes.glb",
+   "name": "Produce crate full of tomatoes",
+   "tracks": [
+    "salinas"
+   ],
+   "kb": 89,
+   "tris": 2072,
+   "height_m": 0.4,
+   "size_m": [
+    0.87,
+    0.4,
+    0.87
+   ],
+   "bbox_min": [
+    -0.43,
+    0,
+    -0.43
+   ],
+   "bbox_max": [
+    0.43,
+    0.4,
+    0.43
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.433,
+    0.433,
+    0.433
+   ],
+   "source_height_units": 0.923,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Kay Lousberg",
+   "title": "Crate of Tomatoes",
+   "source": "https://poly.pizza/m/YrCZgQcpMN",
+   "attribution": null
+  },
+  {
+   "id": "cannery_brick",
+   "category": "harbor",
+   "path": "models/harbor/cannery_brick.glb",
+   "name": "Three-storey brick building (Cannery Row style)",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 344,
+   "tris": 7004,
+   "height_m": 13,
+   "size_m": [
+    10.77,
+    13,
+    10.05
+   ],
+   "bbox_min": [
+    -5.39,
+    0,
+    -5.03
+   ],
+   "bbox_max": [
+    5.39,
+    13,
+    5.03
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.29,
+    2.29,
+    2.29
+   ],
+   "source_height_units": 5.677,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 6,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Big Building",
+   "source": "https://poly.pizza/m/AVCS8jUd2l",
+   "attribution": null
+  },
+  {
+   "id": "shopfront_building",
+   "category": "harbor",
+   "path": "models/harbor/shopfront_building.glb",
+   "name": "Two-storey shopfront building, red/blue",
+   "tracks": [
+    "monterey",
+    "carmel"
+   ],
+   "kb": 74,
+   "tris": 1082,
+   "height_m": 8,
+   "size_m": [
+    9.7,
+    8,
+    9.7
+   ],
+   "bbox_min": [
+    -4.85,
+    0,
+    -4.85
+   ],
+   "bbox_max": [
+    4.85,
+    8,
+    4.85
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    4.85,
+    4.85,
+    4.85
+   ],
+   "source_height_units": 1.65,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Kay Lousberg",
+   "title": "Building B",
+   "source": "https://poly.pizza/m/5XG9i3QzlT",
+   "attribution": null
+  },
+  {
+   "id": "wharf_shed",
+   "category": "harbor",
+   "path": "models/harbor/wharf_shed.glb",
+   "name": "Small wooden shed on a plank deck (wharf hut)",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 195,
+   "tris": 4088,
+   "height_m": 3.4,
+   "size_m": [
+    6.3,
+    3.4,
+    6.55
+   ],
+   "bbox_min": [
+    -3.15,
+    0,
+    -3.27
+   ],
+   "bbox_max": [
+    3.15,
+    3.4,
+    3.27
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    4.47,
+    4.47,
+    4.47
+   ],
+   "source_height_units": 0.761,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Storage Hut",
+   "source": "https://poly.pizza/m/BsTn4bKSGb",
+   "attribution": null
+  },
+  {
+   "id": "pier_long",
+   "category": "harbor",
+   "path": "models/harbor/pier_long.glb",
+   "name": "Wooden pier section on pilings, rope rails",
+   "tracks": [
+    "monterey",
+    "carmel"
+   ],
+   "kb": 90,
+   "tris": 1688,
+   "height_m": 4.29,
+   "size_m": [
+    5.07,
+    4.29,
+    11.93
+   ],
+   "bbox_min": [
+    -2.53,
+    0,
+    -5.96
+   ],
+   "bbox_max": [
+    2.53,
+    4.29,
+    5.96
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "source_height_units": 7.803,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 3,
+   "note": "Deck along Z. Pilings reach below the deck; sink the model so the deck sits ~2 m above water.",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Dock Long",
+   "source": "https://poly.pizza/m/bN9Oz3niNm",
+   "attribution": null
+  },
+  {
+   "id": "pier_wide",
+   "category": "harbor",
+   "path": "models/harbor/pier_wide.glb",
+   "name": "Wide wooden pier section on pilings",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 90,
+   "tris": 1688,
+   "height_m": 4.22,
+   "size_m": [
+    8.04,
+    4.22,
+    11.93
+   ],
+   "bbox_min": [
+    -4.02,
+    0,
+    -5.96
+   ],
+   "bbox_max": [
+    4.02,
+    4.22,
+    5.96
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "source_height_units": 7.68,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 3,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Dock Wide",
+   "source": "https://poly.pizza/m/XndOrGa7rN",
+   "attribution": null
+  },
+  {
+   "id": "pier_stairs",
+   "category": "harbor",
+   "path": "models/harbor/pier_stairs.glb",
+   "name": "Pier corner with stairs down to the water",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 34,
+   "tris": 628,
+   "height_m": 4.19,
+   "size_m": [
+    4.78,
+    4.19,
+    5.21
+   ],
+   "bbox_min": [
+    -2.39,
+    0,
+    -2.61
+   ],
+   "bbox_max": [
+    2.39,
+    4.19,
+    2.61
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.55,
+    0.55,
+    0.55
+   ],
+   "source_height_units": 7.625,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 2,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Dock Stairs",
+   "source": "https://poly.pizza/m/IaUtCxMAxg",
+   "attribution": null
+  },
+  {
+   "id": "boat_fishing_white",
+   "category": "harbor",
+   "path": "models/harbor/boat_fishing_white.glb",
+   "name": "Fishing boat (trawler), white hull",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 232,
+   "tris": 4486,
+   "height_m": 8.41,
+   "size_m": [
+    14,
+    8.41,
+    6.18
+   ],
+   "bbox_min": [
+    -7,
+    0,
+    -3.09
+   ],
+   "bbox_max": [
+    7,
+    8.41,
+    3.09
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0151,
+    0.0151,
+    0.0151
+   ],
+   "source_height_units": 558.041,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Bow points along X. Waterline is roughly 1/4 of the hull height above the keel.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Boat",
+   "source": "https://poly.pizza/m/1ZuSXvhkRg_",
+   "attribution": "\"Boat\" by Poly by Google (https://poly.pizza/m/1ZuSXvhkRg_), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "boat_fishing_green",
+   "category": "harbor",
+   "path": "models/harbor/boat_fishing_green.glb",
+   "name": "Fishing boat (trawler), green hull",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 236,
+   "tris": 4486,
+   "height_m": 8.41,
+   "size_m": [
+    14,
+    8.41,
+    6.18
+   ],
+   "bbox_min": [
+    -7,
+    0,
+    -3.09
+   ],
+   "bbox_max": [
+    7,
+    8.41,
+    3.09
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0151,
+    0.0151,
+    0.0151
+   ],
+   "source_height_units": 558.041,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "Same hull as the white one.",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Boat",
+   "source": "https://poly.pizza/m/d2QPCNGeGp3",
+   "attribution": "\"Boat\" by Poly by Google (https://poly.pizza/m/d2QPCNGeGp3), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "rowboat",
+   "category": "harbor",
+   "path": "models/harbor/rowboat.glb",
+   "name": "Rowboat, white with red trim",
+   "tracks": [
+    "monterey",
+    "carmel"
+   ],
+   "kb": 19,
+   "tris": 1030,
+   "height_m": 0.96,
+   "size_m": [
+    1.74,
+    0.96,
+    3.8
+   ],
+   "bbox_min": [
+    -0.87,
+    0,
+    -1.9
+   ],
+   "bbox_max": [
+    0.87,
+    0.96,
+    1.9
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0543,
+    0.0543,
+    0.0543
+   ],
+   "source_height_units": 17.667,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Rowboat",
+   "source": "https://poly.pizza/m/adoP7kR7S17",
+   "attribution": "\"Rowboat\" by Poly by Google (https://poly.pizza/m/adoP7kR7S17), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "bucket_fish",
+   "category": "harbor",
+   "path": "models/harbor/bucket_fish.glb",
+   "name": "Wooden bucket of fish",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 115,
+   "tris": 3860,
+   "height_m": 0.55,
+   "size_m": [
+    0.69,
+    0.55,
+    0.93
+   ],
+   "bbox_min": [
+    -0.35,
+    0,
+    -0.47
+   ],
+   "bbox_max": [
+    0.35,
+    0.55,
+    0.47
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.808,
+    0.808,
+    0.808
+   ],
+   "source_height_units": 0.681,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Bucket of Fish",
+   "source": "https://poly.pizza/m/G61jVPof0G",
+   "attribution": null
+  },
+  {
+   "id": "storybook_house",
+   "category": "village",
+   "path": "models/village/storybook_house.glb",
+   "name": "Storybook half-timbered cottage, steep teal roof (Comstock-style)",
+   "tracks": [
+    "carmel"
+   ],
+   "kb": 308,
+   "tris": 5758,
+   "height_m": 8.5,
+   "size_m": [
+    5.38,
+    8.5,
+    6.67
+   ],
+   "bbox_min": [
+    -2.69,
+    0,
+    -3.33
+   ],
+   "bbox_max": [
+    2.69,
+    8.5,
+    3.33
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.51,
+    2.51,
+    2.51
+   ],
+   "source_height_units": 3.39,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 9,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Fantasy House",
+   "source": "https://poly.pizza/m/BH2XHWUNmF",
+   "attribution": null
+  },
+  {
+   "id": "storybook_inn",
+   "category": "village",
+   "path": "models/village/storybook_inn.glb",
+   "name": "Storybook half-timbered inn, red roof, porch",
+   "tracks": [
+    "carmel"
+   ],
+   "kb": 354,
+   "tris": 7756,
+   "height_m": 8.5,
+   "size_m": [
+    9.81,
+    8.5,
+    9.79
+   ],
+   "bbox_min": [
+    -4.9,
+    0,
+    -4.9
+   ],
+   "bbox_max": [
+    4.9,
+    8.5,
+    4.9
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.43,
+    2.43,
+    2.43
+   ],
+   "source_height_units": 3.491,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 7,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "Fantasy Inn",
+   "source": "https://poly.pizza/m/x3ZcGn3jr4",
+   "attribution": null
+  },
+  {
+   "id": "cottage_small_a",
+   "category": "village",
+   "path": "models/village/cottage_small_a.glb",
+   "name": "Small cottage, red tiled roof, timber",
+   "tracks": [
+    "carmel",
+    "salinas"
+   ],
+   "kb": 104,
+   "tris": 2336,
+   "height_m": 5,
+   "size_m": [
+    5.76,
+    5,
+    5.6
+   ],
+   "bbox_min": [
+    -2.88,
+    0,
+    -2.8
+   ],
+   "bbox_max": [
+    2.88,
+    5,
+    2.8
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    6.47,
+    6.47,
+    6.47
+   ],
+   "source_height_units": 0.772,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 5,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "House",
+   "source": "https://poly.pizza/m/oJJIRwv6Bo",
+   "attribution": null
+  },
+  {
+   "id": "cottage_small_b",
+   "category": "village",
+   "path": "models/village/cottage_small_b.glb",
+   "name": "Small cottage, red tiled roof, variant b",
+   "tracks": [
+    "carmel",
+    "salinas"
+   ],
+   "kb": 152,
+   "tris": 3504,
+   "height_m": 5.5,
+   "size_m": [
+    6.4,
+    5.5,
+    6.77
+   ],
+   "bbox_min": [
+    -3.2,
+    0,
+    -3.39
+   ],
+   "bbox_max": [
+    3.2,
+    5.5,
+    3.39
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    5.78,
+    5.78,
+    5.78
+   ],
+   "source_height_units": 0.952,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 5,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "Quaternius",
+   "title": "House",
+   "source": "https://poly.pizza/m/RSwoYSLblu",
+   "attribution": null
+  },
+  {
+   "id": "picket_fence_white",
+   "category": "village",
+   "path": "models/village/picket_fence_white.glb",
+   "name": "White picket fence section, 1.75 m long",
+   "tracks": [
+    "carmel"
+   ],
+   "kb": 8,
+   "tris": 128,
+   "height_m": 1,
+   "size_m": [
+    1.92,
+    1,
+    0.15
+   ],
+   "bbox_min": [
+    -0.96,
+    0,
+    -0.08
+   ],
+   "bbox_max": [
+    0.96,
+    1,
+    0.08
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.1,
+    1.1,
+    1.1
+   ],
+   "source_height_units": 0.91,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Vice Cooper",
+   "title": "White Picket Fence",
+   "source": "https://poly.pizza/m/4ivPc8ObaIn",
+   "attribution": "\"White Picket Fence\" by Vice Cooper (https://poly.pizza/m/4ivPc8ObaIn), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "mission_church",
+   "category": "landmarks",
+   "path": "models/landmarks/mission_church.glb",
+   "name": "Ochre mission-style church with bell tower (Carmel Mission stand-in)",
+   "tracks": [
+    "carmel"
+   ],
+   "kb": 192,
+   "tris": 4014,
+   "height_m": 22,
+   "size_m": [
+    18.85,
+    22,
+    7.56
+   ],
+   "bbox_min": [
+    -9.42,
+    0,
+    -3.78
+   ],
+   "bbox_max": [
+    9.42,
+    22,
+    3.78
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0328,
+    0.0328,
+    0.0328
+   ],
+   "source_height_units": 670.086,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Poly by Google",
+   "title": "Church",
+   "source": "https://poly.pizza/m/2-J0Y-8AQOG",
+   "attribution": "\"Church\" by Poly by Google (https://poly.pizza/m/2-J0Y-8AQOG), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "mission_bell_tower",
+   "category": "landmarks",
+   "path": "models/landmarks/mission_bell_tower.glb",
+   "name": "White California-mission bell tower with dome",
+   "tracks": [
+    "carmel"
+   ],
+   "kb": 267,
+   "tris": 4944,
+   "height_m": 16,
+   "size_m": [
+    3.94,
+    16,
+    4.07
+   ],
+   "bbox_min": [
+    -1.97,
+    0,
+    -2.03
+   ],
+   "bbox_max": [
+    1.97,
+    16,
+    2.03
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    2.21,
+    2.21,
+    2.21
+   ],
+   "source_height_units": 7.235,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 6,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Fabio Hofnik",
+   "title": "Vertigo Bell Tower",
+   "source": "https://poly.pizza/m/3vKSG947XWZ",
+   "attribution": "\"Vertigo Bell Tower\" by Fabio Hofnik (https://poly.pizza/m/3vKSG947XWZ), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "lighthouse_redwhite",
+   "category": "landmarks",
+   "path": "models/landmarks/lighthouse_redwhite.glb",
+   "name": "Lighthouse, red/white striped tower with gallery",
+   "tracks": [
+    "monterey",
+    "bigsur"
+   ],
+   "kb": 217,
+   "tris": 3064,
+   "height_m": 16,
+   "size_m": [
+    5.31,
+    16,
+    5.59
+   ],
+   "bbox_min": [
+    -2.66,
+    0,
+    -2.79
+   ],
+   "bbox_max": [
+    2.66,
+    16,
+    2.79
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    1.25,
+    1.25,
+    1.25
+   ],
+   "source_height_units": 12.829,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 1,
+   "note": "",
+   "licence": "CC0-1.0",
+   "licence_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "author": "MaverickFX",
+   "title": "Light House",
+   "source": "https://poly.pizza/m/KRebJXIRb8",
+   "attribution": null
+  },
+  {
+   "id": "lighthouse_keeper_house",
+   "category": "landmarks",
+   "path": "models/landmarks/lighthouse_keeper_house.glb",
+   "name": "Lighthouse with attached keeper's house (Point Pinos-like)",
+   "tracks": [
+    "monterey"
+   ],
+   "kb": 69,
+   "tris": 1472,
+   "height_m": 14,
+   "size_m": [
+    7.68,
+    14,
+    4.75
+   ],
+   "bbox_min": [
+    -3.84,
+    0,
+    -2.38
+   ],
+   "bbox_max": [
+    3.84,
+    14,
+    2.38
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.773,
+    0.773,
+    0.773
+   ],
+   "source_height_units": 18.117,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 6,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "jeremy",
+   "title": "Lighthouse",
+   "source": "https://poly.pizza/m/0SWQTv1whoA",
+   "attribution": "\"Lighthouse\" by jeremy (https://poly.pizza/m/0SWQTv1whoA), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  },
+  {
+   "id": "lighthouse_stone",
+   "category": "landmarks",
+   "path": "models/landmarks/lighthouse_stone.glb",
+   "name": "Grey stone lighthouse tower (Point Sur-like)",
+   "tracks": [
+    "bigsur"
+   ],
+   "kb": 167,
+   "tris": 11762,
+   "height_m": 15,
+   "size_m": [
+    5.13,
+    15,
+    5.13
+   ],
+   "bbox_min": [
+    -2.56,
+    0,
+    -2.56
+   ],
+   "bbox_max": [
+    2.56,
+    15,
+    2.56
+   ],
+   "up": "+Y",
+   "front": "+Z (glTF default; see notes)",
+   "origin": "base centre (bbox bottom centre)",
+   "baked_scale": [
+    0.0328,
+    0.0328,
+    0.0328
+   ],
+   "source_height_units": 457.078,
+   "skinned": false,
+   "animations": [],
+   "draw_calls": 6,
+   "note": "",
+   "licence": "CC-BY-3.0",
+   "licence_url": "https://creativecommons.org/licenses/by/3.0/",
+   "author": "Robert Mirabelle",
+   "title": "Lighthouse",
+   "source": "https://poly.pizza/m/3gEvVZoTN7e",
+   "attribution": "\"Lighthouse\" by Robert Mirabelle (https://poly.pizza/m/3gEvVZoTN7e), licensed under CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/). Rescaled, re-centred and textures re-encoded."
+  }
+ ],
+ "textures": [
+  {
+   "id": "dirt_packed",
+   "path": "textures/dirt_packed/",
+   "name": "Packed light-tan dirt with fine debris (track surface)",
+   "tile_m": 2.07,
+   "tracks": [
+    "all"
+   ],
+   "kb": 516,
+   "maps": [
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "Poly Haven \"Dirt Floor\"",
+   "source": "https://polyhaven.com/a/dirt_floor"
+  },
+  {
+   "id": "grass_dry",
+   "path": "textures/grass_dry/",
+   "name": "Withered pale-straw grass; tint golden (color 0xe8c890) for summer California hills",
+   "tile_m": 2,
+   "tracks": [
+    "all"
+   ],
+   "kb": 817,
+   "maps": [
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": 15255696,
+   "licence": "CC0-1.0",
+   "title": "Poly Haven \"Withered Grass\"",
+   "source": "https://polyhaven.com/a/withered_grass"
+  },
+  {
+   "id": "grass_green",
+   "path": "textures/grass_green/",
+   "name": "Short dense green grass (roughness remapped to ~0.75)",
+   "tile_m": 1.4,
+   "tracks": [
+    "salinas",
+    "carmel"
+   ],
+   "kb": 806,
+   "maps": [
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "ambientCG Grass004",
+   "source": "https://ambientcg.com/a/Grass004"
+  },
+  {
+   "id": "rock_cliff",
+   "path": "textures/rock_cliff/",
+   "name": "Beige-brown cracked weathered rock face",
+   "tile_m": 2.7,
+   "tracks": [
+    "bigsur",
+    "carmel",
+    "monterey"
+   ],
+   "kb": 725,
+   "maps": [
+    "ao.jpg",
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "Poly Haven \"Rock Face 03\"",
+   "source": "https://polyhaven.com/a/rock_face_03"
+  },
+  {
+   "id": "sand_beach",
+   "path": "textures/sand_beach/",
+   "name": "Fine white/cream beach sand",
+   "tile_m": 2,
+   "tracks": [
+    "carmel",
+    "monterey"
+   ],
+   "kb": 275,
+   "maps": [
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "ambientCG Ground101",
+   "source": "https://ambientcg.com/a/Ground101"
+  },
+  {
+   "id": "bark_redwood",
+   "path": "textures/bark_redwood/",
+   "name": "Reddish fibrous (dawn) redwood bark",
+   "tile_m": 1.94,
+   "tracks": [
+    "bigsur",
+    "all"
+   ],
+   "kb": 514,
+   "maps": [
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "Poly Haven \"Metasequoia Bark\"",
+   "source": "https://polyhaven.com/a/metasequoia_bark"
+  },
+  {
+   "id": "wood_planks",
+   "path": "textures/wood_planks/",
+   "name": "Weathered grey timber boards (pier deck, barn siding)",
+   "tile_m": 1.5,
+   "tracks": [
+    "monterey",
+    "salinas",
+    "all"
+   ],
+   "kb": 436,
+   "maps": [
+    "ao.jpg",
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "Poly Haven \"Wood Planks Grey\"",
+   "source": "https://polyhaven.com/a/wood_planks_grey"
+  },
+  {
+   "id": "concrete_weathered",
+   "path": "textures/concrete_weathered/",
+   "name": "Light grey weathered layered concrete (bridge, walls)",
+   "tile_m": 2,
+   "tracks": [
+    "bigsur",
+    "monterey"
+   ],
+   "kb": 293,
+   "maps": [
+    "color.jpg",
+    "normal.jpg",
+    "roughness.jpg"
+   ],
+   "tint": null,
+   "licence": "CC0-1.0",
+   "title": "Poly Haven \"Concrete Layers 02\"",
+   "source": "https://polyhaven.com/a/concrete_layers_02"
+  }
+ ],
+ "hdris": [
+  {
+   "id": "qwantani_late_afternoon_puresky",
+   "name": "Clear sky, low warm late-afternoon sun, hazy horizon",
+   "hdr": "hdri/qwantani_late_afternoon_puresky_1k.hdr",
+   "jpg": "hdri/qwantani_late_afternoon_puresky_2k.jpg",
+   "kb": 1193,
+   "licence": "CC0-1.0",
+   "source": "https://polyhaven.com/a/qwantani_late_afternoon_puresky"
+  },
+  {
+   "id": "kloofendal_48d_partly_cloudy_puresky",
+   "name": "Sun ~48° up, fair-weather cumulus, brighter afternoon",
+   "hdr": "hdri/kloofendal_48d_partly_cloudy_puresky_1k.hdr",
+   "jpg": "hdri/kloofendal_48d_partly_cloudy_puresky_2k.jpg",
+   "kb": 1665,
+   "licence": "CC0-1.0",
+   "source": "https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky"
+  }
+ ]
+}

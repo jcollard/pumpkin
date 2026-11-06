@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PUMPKIN 3D · audio test</title>
+<link rel="icon" href="data:,">
+<style>
+  body { font: 14px/1.4 system-ui, sans-serif; margin: 16px; background: #15171a; color: #e8e2d6; }
+  h1 { font-size: 18px; margin: 0 0 8px; }
+  h2 { font-size: 14px; margin: 16px 0 6px; color: #f0a24a; text-transform: uppercase; letter-spacing: .05em; }
+  button, select { font: inherit; margin: 2px; padding: 4px 10px; background: #2a2e34; color: #eee; border: 1px solid #444; border-radius: 4px; cursor: pointer; }
+  button:hover { background: #3a3f47; }
+  button.on { background: #7a4b14; border-color: #f0a24a; }
+  label { margin-right: 12px; }
+  pre { background: #0d0e10; padding: 8px; max-height: 260px; overflow: auto; font-size: 12px; }
+  canvas { background: #0d0e10; display: block; margin-top: 8px; }
+</style>
+</head>
+<body>
+<h1>PUMPKIN 3D · audio test bench</h1>
+<p>Click <b>Start audio</b> first. One-shots play at the listener or at a position; the simulated race runs six fake
+pumpkins past a fixed roadside listener at (0, 1.6, 7) looking at the track (−z).</p>
+
+<div>
+  <button id="start">Start audio</button>
+  <label>Track <select id="track">
+    <option value="big-sur">big-sur</option><option value="monterey">monterey</option>
+    <option value="carmel">carmel</option><option value="salinas">salinas</option>
+  </select></label>
+  <button id="amb">Set track (ambience)</button>
+  <button id="stop">stopAll()</button>
+  <label><input type="checkbox" id="mute"> mute</label>
+  <label>volume <input type="range" id="vol" min="0" max="1" step="0.01" value="1"></label>
+</div>
+
+<h2>One-shots</h2>
+<div id="shots"></div>
+<div>
+  <label>position <select id="pos">
+    <option value="">none</option><option value="left">left 8 m</option><option value="right">right 8 m</option>
+    <option value="far">far 120 m</option><option value="behind">behind 10 m</option>
+  </select></label>
+  <label>intensity <input type="range" id="int" min="0" max="1" step="0.05" value="0.8"></label>
+  <label>place <select id="place"><option>1</option><option>2</option><option>3</option><option>5</option></select></label>
+</div>
+
+<h2>Simulated race</h2>
+<div>
+  <button id="race">Run race on selected track</button>
+  <label>user speed <select id="rate"><option>0.25</option><option>0.5</option><option selected>1</option><option>2</option><option>4</option></select></label>
+  <button id="pause">Pause</button>
+  <button id="slow">Force slow-mo</button>
+  <label>excitement <input type="range" id="exc" min="0" max="1" step="0.05" value="0.3"> (when no race)</label>
+</div>
+<canvas id="view" width="900" height="140"></canvas>
+
+<h2>Status</h2>
+<pre id="log"></pre>
+
+<script type="module">
+import {createAudio, ONE_SHOT_NAMES} from '../src/audio.js';
+
+const $ = s => document.querySelector(s);
+const log = (...a) => { const el = $('#log'); el.textContent = a.join(' ') + '\n' + el.textContent.slice(0, 4000); };
+
+// ---------------------------------------------------------------------------
+// Fake race shared by the live bench and the offline renderer.
+// ---------------------------------------------------------------------------
+const LISTENER = {position: {x: 0, y: 1.6, z: 7}, forward: {x: 0, y: 0, z: -1}, up: {x: 0, y: 1, z: 0}};
+const FINISH = 150, START = -150;
+
+function surfaceAt(track, x) {
+  if (track === 'monterey') return (x > 40 && x < 70) || (x > 100 && x < 115) ? 'sand' : 'dirt';
+  if (track === 'carmel') return x > 100 ? 'sand' : 'dirt';
+  if (track === 'big-sur') return x > 5 && x < 20 ? 'wood' : x >= 36 && x < 95 ? 'concrete' : 'dirt';
+  return 'dirt';
+}
+
+export function makeRace(track, n = 6) {
+  const P = Array.from({length: n}, (_, i) => ({
+    id: 'p' + i, i, lane: (i - (n - 1) / 2) * 1.15, x: START - i * 0.6, v: 0, y: 0.4,
+    vmax: 30 - i * 1.3 + (i % 2) * 0.8, acc: track === 'salinas' ? 6 : 3.4,
+    airborne: false, active: true, finished: false, caught: false, broken: false, landed: false,
+  }));
+  const nets = track === 'monterey' ? [{x: -30, state: 'up', holder: null}, {x: 80, state: 'up', holder: null}] : [];
+  let simT = track === 'carmel' ? -6.2 : -3.2, place = 0;
+  const marks = new Set();
+  const once = (k, fn) => { if (!marks.has(k)) { marks.add(k); fn(); } };
+  const race = {
+    track, P, get simT() { return simT; }, nets, done: false,
+    // Advance the race clock by dtSim, firing sound events through play(name, opts).
+    step(dtSim, play) {
+      const prev = simT; simT += dtSim;
+      if (track === 'carmel' && prev < -5.5 && simT >= -5.5) play('dq', {});
+      for (const k of [-3, -2, -1]) if (prev < k && simT >= k) play('countdown', {});
+      if (prev < 0 && simT >= 0) { play('go', {}); play('gate', {position: {x: START, y: 0.5, z: 0}, intensity: 0.9}); }
+      if (simT < 0) return;
+      for (const p of P) {
+        if (!p.active && !p.finished) { p.v = Math.max(0, p.v - 20 * dtSim); continue; }
+        const sand = surfaceAt(track, p.x) === 'sand';
+        const vmax = sand ? p.vmax * 0.65 : p.vmax;
+        if (p.caught) p.v = 0;
+        else if (p.finished) p.v = Math.max(0, p.v - 6 * dtSim);
+        else if (p.v < vmax) p.v = Math.min(vmax, p.v + p.acc * dtSim);
+        else p.v = Math.max(vmax, p.v - 8 * dtSim);
+        const x0 = p.x;
+        p.x += p.v * dtSim;
+        // Nets (Monterey): first pumpkin is caught, the next one breaks the net.
+        for (const [ni, net] of nets.entries()) {
+          if (net.state === 'down' || x0 >= net.x || p.x < net.x) continue;
+          if (net.state === 'up' && !net.holder && ni === 0) { net.holder = p; p.caught = true; p.x = net.x; play('netCatch', {position: {x: net.x, y: 0.5, z: p.lane}, intensity: 0.8}); }
+          else if (net.holder !== p) { net.state = 'down'; if (net.holder) net.holder.caught = false; race.slowUntil = simT + 0.55; play('netSnap', {position: {x: net.x, y: 0.8, z: p.lane}, intensity: 0.9}); play('gasp', {intensity: 0.7}); }
+        }
+        // Big Sur gap jump between x=20 and x=36.
+        if (track === 'big-sur') {
+          if (x0 < 20 && p.x >= 20) { p.airborne = true; p.jumpV = p.v; play('whoosh', {position: {x: p.x, y: p.y, z: p.lane}, intensity: Math.min(1, p.v / 30)}); }
+          if (p.airborne) { const u = (p.x - 20) / 16; p.y = 0.4 + 6 * u * (1 - u) - (u > 1 ? (u - 1) * 3 : 0); }
+          if (p.airborne && p.x >= 36) {
+            p.airborne = false; p.y = 0.4;
+            if (p.i === 2) { p.active = false; play('shatter', {position: {x: p.x, y: 0.4, z: p.lane}, intensity: 1}); play('gasp', {intensity: 1}); }
+            else play('land', {position: {x: p.x, y: 0.4, z: p.lane}, intensity: clamp(p.v / 30, 0.2, 1)});
+          }
+        }
+        if (!p.finished && p.x >= FINISH) {
+          p.finished = true; place++; p.place = place;
+          play('finish', {place, position: {x: FINISH, y: 0.5, z: p.lane}});
+          if (place === 1) play('win', {});
+          p.active = false;
+        }
+        p.surface = surfaceAt(track, p.x);
+      }
+      if (P.every(p => p.finished || !p.active) && !race.done) { race.done = true; once('cheer-end', () => play('cheer', {intensity: 0.6})); }
+    },
+    // Slow-motion windows chosen like the director would.
+    slowmo() {
+      const lead = P.reduce((a, b) => (b.x > a.x ? b : a));
+      if (track === 'big-sur') return lead.x > 8 && P.some(p => p.x < 40 && p.x > 8 && p.active);
+      if (track === 'monterey') return simT < (race.slowUntil ?? -99);
+      return false;
+    },
+    frame(dt, rate, playing) {
+      const L = LISTENER.position;
+      let dmin = 1e9;
+      for (const p of P) dmin = Math.min(dmin, Math.hypot(p.x - L.x, p.y - L.y, p.lane - L.z));
+      return {
+        dt, simT, playing, rate, slowmo: this.slowmo(),
+        listener: LISTENER,
+        pumpkins: P.map(p => ({id: p.id, position: {x: p.x, y: p.y, z: p.lane}, speed: p.v, airborne: p.airborne, surface: p.surface || 'dirt', active: p.active && !p.finished})),
+        crowdExcitement: clamp(1 - (dmin - 6) / 90, 0, 1) ** 1.3,
+      };
+    },
+  };
+  return race;
+}
+const clamp = (x, a, b) => Math.min(b, Math.max(a, x));
+
+// ---------------------------------------------------------------------------
+// Live bench
+// ---------------------------------------------------------------------------
+let audio = null, race = null, paused = false, forceSlow = false, lastT = 0;
+function ensure() { if (!audio) { audio = createAudio({debug: true}); window.audio = audio; } return audio; }
+
+$('#start').onclick = async () => { await ensure().start(); log('started', JSON.stringify(audio.stats())); };
+$('#amb').onclick = () => { ensure().setTrack($('#track').value); log('setTrack', $('#track').value); };
+$('#stop').onclick = () => { audio?.stopAll(); race = null; log('stopAll'); };
+$('#mute').onchange = e => audio?.setMuted(e.target.checked);
+$('#vol').oninput = e => audio?.setVolume(+e.target.value);
+$('#pause').onclick = e => { paused = !paused; e.target.classList.toggle('on', paused); };
+$('#slow').onclick = e => { forceSlow = !forceSlow; e.target.classList.toggle('on', forceSlow); };
+
+const POS = {left: {x: -8, y: 1, z: 6}, right: {x: 8, y: 1, z: 6}, far: {x: 0, y: 0, z: -113}, behind: {x: 0, y: 1.5, z: 17}};
+for (const name of ONE_SHOT_NAMES) {
+  const b = document.createElement('button');
+  b.textContent = name;
+  b.onclick = async () => {
+    await ensure().start();
+    const pos = POS[$('#pos').value];
+    const ok = audio.play(name, {position: pos, intensity: +$('#int').value, place: +$('#place').value});
+    log('play', name, ok ? '' : '(skipped)');
+  };
+  $('#shots').appendChild(b);
+}
+$('#race').onclick = async () => {
+  await ensure().start();
+  const t = $('#track').value;
+  audio.stopAll();
+  audio.setTrack(t);
+  race = makeRace(t);
+  log('race on', t);
+};
+
+function loop(ts) {
+  const dt = lastT ? Math.min(0.1, (ts - lastT) / 1000) : 1 / 60;
+  lastT = ts;
+  if (audio && audio.context) {
+    const user = +$('#rate').value;
+    let frame;
+    if (race) {
+      const slow = race.slowmo() || forceSlow;
+      const rate = user * (slow ? 0.35 : 1);
+      if (!paused) race.step(dt * rate, (n, o) => audio.play(n, o));
+      frame = race.frame(dt, rate, !paused);
+      frame.slowmo = slow;
+    } else {
+      frame = {dt, simT: 0, playing: !paused, rate: user * (forceSlow ? 0.35 : 1), slowmo: forceSlow, listener: LISTENER, pumpkins: [], crowdExcitement: +$('#exc').value};
+    }
+    audio.update(frame);
+    draw(frame);
+  }
+  requestAnimationFrame(loop);
+}
+requestAnimationFrame(loop);
+
+function draw(frame) {
+  const c = $('#view'), g = c.getContext('2d');
+  g.clearRect(0, 0, c.width, c.height);
+  const X = x => (x - START) / (FINISH - START + 20) * (c.width - 20) + 10;
+  g.fillStyle = '#333'; g.fillRect(10, 60, c.width - 20, 20);
+  g.fillStyle = '#6cf'; g.fillRect(X(0) - 3, 100, 6, 6);
+  for (const p of frame.pumpkins) {
+    g.fillStyle = p.active ? '#f0a24a' : '#666';
+    g.beginPath(); g.arc(X(p.position.x), 70 + p.position.z * 4 - p.position.y * 4, 5, 0, 7); g.fill();
+  }
+  g.fillStyle = '#ccc';
+  g.fillText(`simT ${frame.simT.toFixed(2)}  rate ${frame.rate.toFixed(2)}  slowmo ${frame.slowmo}  exc ${frame.crowdExcitement.toFixed(2)}`, 10, 20);
+  if (audio) g.fillText(JSON.stringify(audio.stats().rollingVoices), 10, 130);
+}
+
+// ---------------------------------------------------------------------------
+// Offline rendering (scriptable): window.renderOffline etc.
+// ---------------------------------------------------------------------------
+const SR = 48000, QUANT = 128 * 13; // update every 13 render quanta (~34.7 ms)
+
+// Headless Chromium sometimes never finishes an OfflineAudioContext that contains an
+// HRTF panner (even a single oscillator, no suspend) - it waits on the HRTF database.
+// Render a tiny HRTF graph first; if that stalls, fail fast so the caller can reload
+// the page and retry. (Realtime AudioContexts do not wait for the database.)
+let hrtfWarm = null;
+function warmHRTF() {
+  if (!hrtfWarm) {
+    const c = new OfflineAudioContext(2, SR / 2, SR);
+    const o = c.createOscillator(), p = c.createPanner();
+    p.panningModel = 'HRTF'; o.connect(p); p.connect(c.destination); o.start();
+    hrtfWarm = Promise.race([c.startRendering(), new Promise((_, rej) => setTimeout(() => rej(new Error('HRTF warm-up stalled (Chromium offline HRTF quirk): reload and retry')), 4000))]);
+    hrtfWarm.catch(() => { hrtfWarm = null; });
+  }
+  return hrtfWarm;
+}
+
+async function offline(seconds, drive, {files = true, hrtf = true} = {}) {
+  window.__offline = {phase: 'warm'};
+  if (hrtf) await warmHRTF();
+  window.__offline = {phase: 'create'};
+  const ctx = new OfflineAudioContext(2, Math.ceil(seconds * SR), SR);
+  const a = createAudio({context: ctx, files, hrtf, debug: true});
+  window.__offline = {phase: 'start'};
+  await a.start();
+  window.__offline = {phase: 'started'};
+  const step = QUANT / SR;
+  let k = 0;
+  const errors = [];
+  const tick = () => {
+    window.__offline = {k, t: ctx.currentTime, state: ctx.state, seconds, phase: 'tick'};
+    try { drive(a, k * step, step); } catch (e) { if (errors.length < 5) errors.push(String(e && e.stack || e)); }
+    k++;
+    window.__offline.phase = 'ticked';
+  };
+  const schedule = () => {
+    const t = k * step;
+    if (t >= seconds - step) return;
+    ctx.suspend(t).then(() => { tick(); schedule(); ctx.resume(); }, e => errors.push('suspend: ' + e));
+  };
+  tick();
+  schedule();
+  window.__offline = {k, t: ctx.currentTime, state: ctx.state, seconds, phase: 'start'};
+  ctx.onstatechange = () => { if (window.__offline) window.__offline.lastState = ctx.state; };
+  const buf = await ctx.startRendering();
+  window.__offline.phase = 'done';
+  if (errors.length) console.error('[offline] ' + errors.join('\n'));
+  return {buf, stats: {...a.stats(), errors}};
+}
+
+// Metrics: peak, RMS, per-window RMS (dB) and spectral centroid (Hz).
+function fftMag(re) {
+  const n = re.length, im = new Float32Array(n);
+  for (let i = 1, j = 0; i < n; i++) { let bit = n >> 1; for (; j & bit; bit >>= 1) j ^= bit; j ^= bit; if (i < j) { [re[i], re[j]] = [re[j], re[i]]; } }
+  for (let len = 2; len <= n; len <<= 1) {
+    const ang = -2 * Math.PI / len, wr = Math.cos(ang), wi = Math.sin(ang);
+    for (let i = 0; i < n; i += len) {
+      let cr = 1, ci = 0;
+      for (let j = 0; j < len / 2; j++) {
+        const ar = re[i + j + len / 2], ai = im[i + j + len / 2];
+        const tr = ar * cr - ai * ci, ti = ar * ci + ai * cr;
+        re[i + j + len / 2] = re[i + j] - tr; im[i + j + len / 2] = im[i + j] - ti;
+        re[i + j] += tr; im[i + j] += ti;
+        const ncr = cr * wr - ci * wi; ci = cr * wi + ci * wr; cr = ncr;
+      }
+    }
+  }
+  const mag = new Float32Array(n / 2);
+  for (let i = 0; i < n / 2; i++) mag[i] = Math.hypot(re[i], im[i]);
+  return mag;
+}
+const db = x => x > 0 ? 20 * Math.log10(x) : -200;
+export function analyse(buf, win = 0.5, from = 0, to = Infinity) {
+  const L = buf.getChannelData(0), R = buf.numberOfChannels > 1 ? buf.getChannelData(1) : L;
+  const sr = buf.sampleRate, n = buf.length;
+  const i0 = Math.floor(from * sr), i1 = Math.min(n, Math.floor(Math.min(to, n / sr) * sr));
+  let peak = 0, sum = 0, clips = 0;
+  for (let i = i0; i < i1; i++) {
+    const a = Math.abs(L[i]), b = Math.abs(R[i]);
+    if (a > peak) peak = a; if (b > peak) peak = b;
+    if (a >= 0.999 || b >= 0.999) clips++;
+    sum += (L[i] * L[i] + R[i] * R[i]) / 2;
+  }
+  const rms = Math.sqrt(sum / Math.max(1, i1 - i0));
+  const W = Math.floor(win * sr), windows = [];
+  for (let s = i0; s + W <= i1; s += W) {
+    let e = 0, pk = 0;
+    for (let i = s; i < s + W; i++) { const m = (L[i] + R[i]) / 2; e += m * m; pk = Math.max(pk, Math.abs(L[i]), Math.abs(R[i])); }
+    // Spectral centroid over a few 2048-sample frames.
+    let num = 0, den = 0;
+    for (let f = s; f + 2048 <= s + W; f += 4096) {
+      const re = new Float32Array(2048);
+      for (let i = 0; i < 2048; i++) re[i] = ((L[f + i] + R[f + i]) / 2) * (0.5 - 0.5 * Math.cos(2 * Math.PI * i / 2047));
+      const mag = fftMag(re);
+      for (let b = 1; b < 1024; b++) { const fr = b * sr / 2048; num += fr * mag[b] * mag[b]; den += mag[b] * mag[b]; }
+    }
+    windows.push({t: +((s - i0) / sr + from).toFixed(2), rmsDb: +db(Math.sqrt(e / W)).toFixed(1), peakDb: +db(pk).toFixed(1), centroid: den > 0 ? Math.round(num / den) : 0});
+  }
+  // Audible duration: span of windows louder than -55 dBFS.
+  return {peak, peakDb: +db(peak).toFixed(2), rmsDb: +db(rms).toFixed(1), clips, windows};
+}
+
+function wavBase64(buf) {
+  const ch = buf.numberOfChannels, n = buf.length, sr = buf.sampleRate;
+  const bytes = 44 + n * ch * 2, ab = new ArrayBuffer(bytes), v = new DataView(ab);
+  const w = (o, s) => { for (let i = 0; i < s.length; i++) v.setUint8(o + i, s.charCodeAt(i)); };
+  w(0, 'RIFF'); v.setUint32(4, bytes - 8, true); w(8, 'WAVE'); w(12, 'fmt '); v.setUint32(16, 16, true);
+  v.setUint16(20, 1, true); v.setUint16(22, ch, true); v.setUint32(24, sr, true); v.setUint32(28, sr * ch * 2, true);
+  v.setUint16(32, ch * 2, true); v.setUint16(34, 16, true); w(36, 'data'); v.setUint32(40, n * ch * 2, true);
+  const data = Array.from({length: ch}, (_, c) => buf.getChannelData(c));
+  let o = 44;
+  for (let i = 0; i < n; i++) for (let c = 0; c < ch; c++) { v.setInt16(o, Math.max(-1, Math.min(1, data[c][i])) * 32767, true); o += 2; }
+  const u8 = new Uint8Array(ab);
+  let s = '';
+  for (let i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000));
+  return btoa(s);
+}
+
+function finish(res, opts) {
+  const out = {...analyse(res.buf, opts.win || 0.5), stats: res.stats};
+  if (opts.wav) out.wav = wavBase64(res.buf);
+  if (opts.download) {
+    const a = document.createElement('a');
+    a.href = 'data:audio/wav;base64,' + (out.wav || wavBase64(res.buf));
+    a.download = (opts.name || 'render') + '.wav'; a.click();
+  }
+  return out;
+}
+
+const LISTEN = {...LISTENER};
+
+// Full simulated race (or ambience only with {scenario: 'ambience'}).
+window.renderOffline = async (trackId = 'big-sur', seconds = 30, opts = {}) => {
+  const r = opts.scenario === 'ambience' ? null : makeRace(trackId);
+  const userRate = opts.rate ?? 1;
+  const res = await offline(seconds, (a, t, dt) => {
+    if (t === 0) a.setTrack(trackId, opts.ambience);
+    if (!r) { a.update({dt, simT: 0, playing: opts.playing ?? true, rate: userRate, slowmo: false, listener: LISTEN, pumpkins: [], crowdExcitement: opts.excitement ?? 0.3}); return; }
+    const slow = r.slowmo();
+    const rate = userRate * (slow ? 0.35 : 1);
+    r.step(dt * rate, (n, o) => a.play(n, o));
+    const f = r.frame(dt, rate, true); f.slowmo = slow;
+    a.update(f);
+  }, opts);
+  return finish(res, {...opts, name: `${trackId}-${opts.scenario || 'race'}`});
+};
+
+// One one-shot, alone, at the listener (or opts.position).
+window.renderOneShot = async (name, opts = {}) => {
+  const seconds = opts.seconds ?? 4;
+  const res = await offline(seconds, (a, t, dt) => {
+    a.update({dt, simT: 0, playing: true, rate: opts.rate ?? 1, slowmo: !!opts.slowmo, listener: LISTEN, pumpkins: [], crowdExcitement: 0});
+    if (t === 0) a.play(name, {position: opts.position, intensity: opts.intensity ?? 0.8, place: opts.place ?? 1});
+  }, opts);
+  return finish(res, {...opts, win: opts.win || 0.1, name});
+};
+
+// One pumpkin rolling 6 m in front of the listener, stepping through speeds.
+window.renderRolling = async (surface = 'dirt', speeds = [0, 5, 10, 15, 20, 25, 30, 35], opts = {}) => {
+  const hold = opts.hold ?? 1.5, seconds = speeds.length * hold;
+  const res = await offline(seconds, (a, t, dt) => {
+    const i = Math.min(speeds.length - 1, Math.floor(t / hold));
+    a.update({dt, simT: t, playing: true, rate: 1, slowmo: !!opts.slowmo, listener: LISTEN,
+      pumpkins: [{id: 'a', position: {x: 0, y: 0.4, z: 1}, speed: speeds[i], airborne: !!opts.airborne, surface, active: true}], crowdExcitement: 0});
+  }, opts);
+  const out = finish(res, {...opts, win: hold, name: 'rolling-' + surface});
+  // Steady-state metrics per speed step (skip the first 0.4 s of each step).
+  out.steps = speeds.map((s, i) => { const m = analyse(res.buf, hold - 0.4, i * hold + 0.4, (i + 1) * hold); return {speed: s, rmsDb: m.rmsDb, centroid: m.windows[0]?.centroid}; });
+  return out;
+};
+
+// Ambience + one rolling pumpkin with slow motion between 3 and 6 s.
+window.renderSlowmo = async (trackId = 'big-sur', opts = {}) => {
+  const res = await offline(9, (a, t, dt) => {
+    if (t === 0) a.setTrack(trackId);
+    const slow = t >= 3 && t < 6;
+    a.update({dt, simT: t, playing: true, rate: slow ? 0.35 : 1, slowmo: slow, listener: LISTEN,
+      pumpkins: [{id: 'a', position: {x: 0, y: 0.4, z: 1}, speed: 25, airborne: false, surface: 'dirt', active: true}], crowdExcitement: 0.4});
+  }, opts);
+  const out = finish(res, {...opts, win: 1, name: 'slowmo-' + trackId});
+  out.phases = [[1, 3], [3.8, 6], [7, 9]].map(([a, b]) => { const m = analyse(res.buf, b - a, a, b); return {from: a, to: b, rmsDb: m.rmsDb, centroid: m.windows[0]?.centroid}; });
+  return out;
+};
+
+// Pause behaviour: rolling + ambience, paused between 3 and 6 s.
+window.renderPause = async (trackId = 'carmel', opts = {}) => {
+  const res = await offline(9, (a, t, dt) => {
+    if (t === 0) a.setTrack(trackId);
+    const playing = !(t >= 3 && t < 6);
+    a.update({dt, simT: 0, playing, rate: 1, slowmo: false, listener: LISTEN,
+      pumpkins: [{id: 'a', position: {x: 0, y: 0.4, z: 1}, speed: 25, airborne: false, surface: 'dirt', active: true}], crowdExcitement: 0.3});
+  }, opts);
+  const out = finish(res, {...opts, win: 1, name: 'pause-' + trackId});
+  out.phases = [[1, 3], [3.8, 6], [7, 9]].map(([a, b]) => ({from: a, to: b, rmsDb: analyse(res.buf, b - a, a, b).rmsDb}));
+  return out;
+};
+
+// One pumpkin passing 4 m in front of the listener at 30 m/s (x from -90 to +90).
+// Reports left/right balance and spectral centroid before and after the pass.
+window.renderPassBy = async (opts = {}) => {
+  const speed = opts.speed ?? 30, seconds = 6;
+  const res = await offline(seconds, (a, t, dt) => {
+    const x = -90 + speed * t;
+    a.update({dt, simT: t, playing: true, rate: 1, slowmo: false, listener: LISTEN,
+      pumpkins: [{id: 'a', position: {x, y: 0.4, z: 3}, speed, airborne: false, surface: opts.surface || 'concrete', active: true}], crowdExcitement: 0});
+  }, opts);
+  const out = finish(res, {...opts, win: 0.5, name: 'passby'});
+  const L = res.buf.getChannelData(0), R = res.buf.getChannelData(1), sr = res.buf.sampleRate;
+  const bal = (a, b) => { let l = 0, r = 0; for (let i = Math.floor(a * sr); i < Math.floor(b * sr); i++) { l += L[i] * L[i]; r += R[i] * R[i]; } return +(10 * Math.log10((r + 1e-12) / (l + 1e-12))).toFixed(1); };
+  const pass = 90 / speed;
+  out.balance = {approachRminusLdB: bal(pass - 1.2, pass - 0.4), recedeRminusLdB: bal(pass + 0.4, pass + 1.2)};
+  out.centroid = {approach: analyse(res.buf, 0.8, pass - 1.2, pass - 0.4).windows[0]?.centroid, recede: analyse(res.buf, 0.8, pass + 0.4, pass + 1.2).windows[0]?.centroid};
+  return out;
+};
+
+// Track crossfade: Salinas, switch to Monterey at 6 s, stopAll() at 14 s.
+window.renderCrossfade = async (opts = {}) => {
+  const res = await offline(18, (a, t, dt) => {
+    if (t === 0) a.setTrack('salinas');
+    if (Math.abs(t - 6) < dt / 2) a.setTrack('monterey');
+    if (Math.abs(t - 14) < dt / 2) { a.play('cheer', {intensity: 1}); a.stopAll(); }
+    a.update({dt, simT: t, playing: true, rate: 1, slowmo: false, listener: LISTEN, pumpkins: [], crowdExcitement: 0.3});
+  }, opts);
+  return finish(res, {...opts, win: 1, name: 'crossfade'});
+};
+
+// Eight pumpkins at once (voice cap) at fast-forward with a burst of events (stacking).
+window.renderStack = async (opts = {}) => {
+  const rate = opts.rate ?? 4;
+  const res = await offline(6, (a, t, dt) => {
+    if (t === 0) a.setTrack('big-sur');
+    if (t > 1 && t < 3) { for (let k = 0; k < 3; k++) { a.play('land', {position: {x: k, y: 0, z: 0}, intensity: 0.9}); a.play('finish', {place: k + 1}); a.play('whoosh', {position: {x: -k, y: 1, z: 0}}); } a.play('cheer', {intensity: 1}); }
+    a.update({dt, simT: t, playing: true, rate, slowmo: false, listener: LISTEN,
+      pumpkins: Array.from({length: 8}, (_, i) => ({id: 'p' + i, position: {x: -20 + i * 5, y: 0.4, z: 0}, speed: 28, airborne: false, surface: 'dirt', active: true})), crowdExcitement: 0.8});
+  }, opts);
+  return finish(res, {...opts, win: 0.5, name: 'stack'});
+};
+
+window.audioTestReady = true;
+</script>
+</body>
+</html>

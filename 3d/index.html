@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PUMPKIN 3D</title>
+<meta name="description" content="Watch Pumpkin races in 3D on the California coast. Same physics and results as the original game.">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{ "imports": {
+  "three": "./vendor/three/three.module.js",
+  "three/addons/": "./vendor/three/addons/"
+} }
+</script>
+</head>
+<body>
+<canvas id="view" aria-label="3D race view"></canvas>
+
+<div id="hud" hidden>
+  <header class="topbar">
+    <div class="brand"><b id="brand-name">PUMPKIN</b><span id="brand-label"></span></div>
+    <div class="clock" id="clock">0.00</div>
+    <div class="cam" id="cam-label"></div>
+  </header>
+
+  <ol id="standings" class="standings" aria-label="Standings"></ol>
+
+  <div id="ticker" class="ticker" aria-live="polite"></div>
+
+  <div id="pips" class="pips" aria-hidden="true"></div>
+
+  <div id="speedo" class="speedo"><small id="speedo-name"></small><b id="speedo-value">0</b><span>km/h</span></div>
+
+  <footer class="controls">
+    <canvas id="profile" class="profile" aria-label="Track profile with pumpkin positions"></canvas>
+    <div class="transport">
+      <button id="restart" title="Restart (R)">⟲</button>
+      <button id="play" title="Play / pause (Space)">❚❚</button>
+      <select id="rate" title="Playback speed">
+        <option value="0.25">¼×</option><option value="0.5">½×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option>
+      </select>
+      <div class="scrub"><input id="scrub" type="range" min="0" max="1" step="0.01" value="0" aria-label="Race time"><div id="marks" class="marks"></div></div>
+      <select id="gfx" title="Graphics quality. Auto lowers quality when the frame rate drops."></select><span id="fps" class="fps"></span><button id="lighter" class="hint" hidden title="Fewer trees and coarser terrain; reloads the page">Still slow? Lighter scenery</button>
+      <button id="pip-toggle" title="Picture-in-picture for 2nd–4th (P)">PiP</button>
+      <button id="garage-open" title="Garage: see every pumpkin up close (G)">Garage</button>
+      <div class="vol"><button id="mute" title="Sound on/off (M). Hover for volume.">🔊</button>
+        <div class="vol-pop"><input id="volume" type="range" min="0" max="1" step="0.01" value="0.8" aria-label="Volume"></div></div>
+      <button id="setup-open" title="Change pumpkins or track">Setup</button>
+    </div>
+    <div class="cams" id="cams" role="group" aria-label="Cameras"></div>
+  </footer>
+</div>
+
+<dialog id="setup">
+  <form method="dialog" id="setup-form">
+    <h1>PUMPKIN <span>3D</span></h1>
+    <p class="lede">Paste up to 8 share codes from the game and pick a race. Races use the game's own physics, unchanged, so results match the 2D game exactly.</p>
+    <div id="track-pick" class="track-pick" role="radiogroup" aria-label="Race"></div>
+    <div id="code-list" class="code-list"></div>
+    <p id="setup-error" class="error" role="alert"></p>
+    <div class="row">
+      <label title="Fewer trees and coarser terrain. Reloads the page."><input type="checkbox" id="quality"> Lighter scenery (reloads)</label>
+      <span><button type="button" id="garage-preview">Preview pumpkins</button>
+      <button value="default" id="race" class="primary">RACE →</button></span>
+    </div>
+    <p class="fine">Keys: Space play/pause · 0 auto cameras · 1–9 cameras · [ ] change focus · ← → skip 2 s · P picture-in-picture · G garage · L labels · M sound · R restart · <a href="#" id="credits-open">Credits</a></p>
+  </form>
+</dialog>
+
+<dialog id="credits" class="credits">
+  <h2>Credits</h2>
+  <p>Race physics: the original Pumpkin game, unchanged. 3D: <a href="https://threejs.org" target="_blank" rel="noopener">three.js</a> (MIT).
+  Models, textures, skies and sounds come from the sources below; CC-BY items are credited as their licence requires.</p>
+  <div id="credits-body">Loading…</div>
+  <form method="dialog"><button>Close</button></form>
+</dialog>
+
+<aside id="results" class="results" hidden>
+  <div class="eyebrow" id="results-title"></div>
+  <table><tbody id="results-rows"></tbody></table>
+  <div id="results-circuit"></div>
+  <div class="row">
+    <button id="results-again">Watch again</button>
+    <button id="results-setup">Setup</button>
+    <button id="results-next" class="primary">Next race →</button>
+    <button id="results-final" class="primary" hidden>Final Results 🏆</button>
+  </div>
+</aside>
+
+<div id="loading">Building the coast…</div>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
