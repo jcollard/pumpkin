@@ -61,6 +61,31 @@ function startAfterInspection() {
   S.inspectionConfirmed = true; S.playing = true;
   if (S.simT < S.inspectionHold) { S.simT = S.prevT = S.inspectionHold; if (S.director) S.director.cutPending = true; }
 }
+// Pumpkin name tags as HTML pinned to each pumpkin, so they stay sharp at any render resolution.
+const tagLayer = Object.assign(document.createElement('div'), {className: 'tags'});
+$('#hud').prepend(tagLayer);
+const tagPos = new THREE.Vector3();
+function buildTags(views) {
+  tagLayer.innerHTML = '';
+  for (const v of views) {
+    v.tag = Object.assign(document.createElement('div'), {className: 'tag3d'});
+    v.tag.innerHTML = `<i style="background:${v.color}"></i>${esc(v.name)}`;
+    tagLayer.append(v.tag);
+  }
+}
+function placeTags() {
+  const w = renderer.domElement.clientWidth, h = renderer.domElement.clientHeight;
+  for (const v of S.views) {
+    if (!v.tag) continue;
+    const d = camera.position.distanceTo(v.root.position);
+    const alpha = S.labelsOn && v.label.visible ? Math.max(0, Math.min(1, (115 - d) / 50)) : 0;
+    tagPos.copy(v.root.position); tagPos.y += v.radius + 0.22 + d * 0.004;
+    tagPos.project(camera);
+    if (alpha <= 0.01 || tagPos.z > 1 || tagPos.z < -1) { v.tag.style.opacity = 0; continue; }
+    v.tag.style.opacity = alpha.toFixed(2);
+    v.tag.style.transform = `translate(${((tagPos.x + 1) / 2 * w).toFixed(1)}px, ${((1 - tagPos.y) / 2 * h).toFixed(1)}px) translate(-50%, -100%)`;
+  }
+}
 const lowerThird = Object.assign(document.createElement('div'), {className: 'lowerthird', hidden: true});
 $('#hud').append(lowerThird);
 
@@ -68,7 +93,7 @@ const S = { // everything that belongs to the current track and race
   scene: new THREE.Scene(), track: null, course: null, sky: null, env: null,
   views: [], director: null, plan: null, events: [], codes: [],
   simT: -3, prevT: -3, playing: true, userRate: 1, endT: 10, scrubbing: false, labelsOn: true, capturing: false,
-  pipOn: localStorage.getItem('pumpkin3d-pip') ? localStorage.getItem('pumpkin3d-pip') === '1' : !LOW,
+  pipOn: localStorage.getItem('pumpkin3d-pip') !== '0', // on unless you turned it off
   results: null, rows: null, shownResults: false,
   mode: 'single', circuit: null, // circuit: {idx, races: [rows...], names}
 };
@@ -90,7 +115,7 @@ async function setTrack(id) {
   // Stop updating and drawing the old race first: its scene is about to be disposed.
   const old = {scene: S.scene, views: S.views};
   Object.assign(S, {switching: true, director: null, views: [], env: null, plan: null, track: null});
-  pips.hideAll(); inspPop.clear(); lowerThird.hidden = true; $('#results').hidden = true;
+  pips.hideAll(); inspPop.clear(); lowerThird.hidden = true; $('#results').hidden = true; tagLayer.innerHTML = '';
   await new Promise(r => requestAnimationFrame(() => setTimeout(r, 0)));
   for (const v of old.views) v.dispose?.();
   disposeScene(old.scene);
@@ -142,7 +167,7 @@ function runRace(codes) {
   const lanes = laneOffsets(entries.length, course.roadHalf);
   const views = entries.map((p, i) => {
     const v = new PumpkinView(scene, course, p, results[i], i, lanes[i]);
-    v.place = rows[i].place; v.money = rows[i].money; v.labelsOn = S.labelsOn;
+    v.place = rows[i].place; v.money = rows[i].money; v.labelsOn = false; // drawn as HTML tags instead
     return v;
   });
   course.startChutes?.rebuild(lanes); // one start stall per pumpkin
@@ -163,7 +188,7 @@ function runRace(codes) {
   S.events = buildEvents();
   $('#scrub').min = -course.preroll; $('#scrub').max = S.endT; $('#scrub').step = 0.01;
   $('#results').hidden = true;
-  drawMarks(); buildStandings(); setCamMode('AUTO');
+  drawMarks(); buildStandings(); buildTags(views); setCamMode('AUTO');
   console.log('[pumpkin3d] results', course.id, JSON.stringify(views.map(v => ({name: v.name, status: v.result.status, time: +v.result.time.toFixed(4), reason: v.result.reason || null}))));
 }
 
@@ -455,7 +480,7 @@ addEventListener('keydown', e => {
   else if (e.key === 'm' || e.key === 'M') setMute(!audio.muted);
   else if (e.key === 'p' || e.key === 'P') setPip(!S.pipOn);
   else if (e.key === 'g' || e.key === 'G') $('#garage-open').onclick();
-  else if (e.key === 'l' || e.key === 'L') { S.labelsOn = !S.labelsOn; S.views.forEach(v => { v.labelsOn = S.labelsOn; }); }
+  else if (e.key === 'l' || e.key === 'L') S.labelsOn = !S.labelsOn;
   else if (e.key === '0') setCamMode('AUTO');
   else if (e.key === '[' || e.key === ']') { if (S.director.mode === 'AUTO') setCamMode('CHASE'); S.director.manualFocus = (S.director.manualFocus + (e.key === ']' ? 1 : S.views.length - 1)) % S.views.length; }
   else if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { S.simT = S.prevT = Math.max(-S.course.preroll, Math.min(S.endT, S.simT + (e.key === 'ArrowRight' ? 2 : -2))); S.director.cutPending = true; }
@@ -502,6 +527,7 @@ function step(dt, advance) {
     S.prevT = S.simT;
     for (const v of views) v.update(S.simT, camera);
     const info = director.update(S.simT, dt);
+    placeTags();
     const focusIdx = views.indexOf(info.focus);
     S.sky.followShadow(info.focus.root.position);
     env.updateGate?.(S.simT);

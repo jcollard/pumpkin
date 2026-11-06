@@ -201,3 +201,9 @@ dialog.analysis{border:0;border-radius:14px;width:min(1240px,calc(100% - 24px));
 .analysis .nm{display:flex;align-items:center;gap:6px;font-size:12px}
 .analysis .winnings small{display:block;color:#6f7466;font-size:10px;white-space:nowrap}
 .analysis .spend{display:block;color:#6f7466;font-size:10px}
+
+/* Pumpkin name tags (HTML, crisp at any render resolution) */
+.tags{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.tag3d{position:absolute;left:0;top:0;display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:12px;font-weight:600;color:#fff;
+  background:rgba(18,24,22,.78);border-radius:999px;padding:2px 9px 2px 6px;will-change:transform,opacity;text-shadow:0 1px 1px rgba(0,0,0,.4)}
+.tag3d i{width:9px;height:9px;border-radius:50%;flex:none}
